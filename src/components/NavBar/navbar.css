@@ -11,7 +11,7 @@
     /* background-color: rgba(188, 0, 45); */
     background-image: url(../../images/background-navbar.jpg);
     background-size: cover;
-    color: rgb(255, 230, 230);
+    color: rgba(255, 230, 230, 0.9);
 }
 .navbar {
     width: 95%;
@@ -27,6 +27,7 @@
             user-select: none;
     cursor: pointer;
     padding: .3rem;
+    border-radius: 1.5px;
 }
 .navbar .logo:hover {
     background-color: rgba(255, 230, 230,0.9);
@@ -60,6 +61,7 @@
     font-family: 'Bebas', sans-serif;
     font-weight: bold;
     cursor: pointer;
+    border-radius: 1px;
 }
 .navbar .menu ul li:hover {
     background-color: rgba(255, 230, 230, 0.9);
