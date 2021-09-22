@@ -8,7 +8,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(188, 0, 45);
+    /* background-color: rgba(188, 0, 45); */
+    background-image: url(../../images/background-navbar.jpg);
+    background-size: cover;
     color: rgb(255, 230, 230);
 }
 .navbar {
@@ -27,8 +29,8 @@
     padding: .3rem;
 }
 .navbar .logo:hover {
-    background-color: rgb(255, 230, 230);
-    color: rgba(188, 0, 45);
+    background-color: rgba(255, 230, 230,0.9);
+    color: rgb(155, 0, 36);
     transition: .15s;
 }
 .navbar .logo h2 {
@@ -53,14 +55,23 @@
 .navbar .menu ul li {
     font-size: .78rem;
     list-style: none;
-    padding: .3rem;
+    padding: .5rem;
     margin-left: .4rem;
     font-family: 'Bebas', sans-serif;
     font-weight: bold;
     cursor: pointer;
 }
 .navbar .menu ul li:hover {
-    background-color: rgb(255, 230, 230);
-    color: rgba(188, 0, 45);
+    background-color: rgba(255, 230, 230, 0.9);
+    color: rgb(155, 0, 36);
     transition: .15s;
 }
+.navbar .img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar div img {
+    max-height: 3.5rem;
+}
+
