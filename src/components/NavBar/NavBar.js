@@ -11,7 +11,7 @@ const NavBar = () => {
                 </div>
                 <nav className='menu'>
                     <ul>
-                        <li id='bourne'>Bourne®</li>
+                        <li>Bourne</li>
                         <li>Productos</li>
                         <li>Contacto</li>
                     </ul>
