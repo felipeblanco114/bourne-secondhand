@@ -1,8 +1,8 @@
 import React from 'react';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import './CartButton.css';
+import './CartWidget.css';
 
-const CartButton = () => {
+const CartWidget = () => {
     return (
         <div className='cart-icon-container'>
             <ShoppingCartIcon className='cart-icon'/>
@@ -10,4 +10,4 @@ const CartButton = () => {
     )
 }
 
-export default CartButton
+export default CartWidget;

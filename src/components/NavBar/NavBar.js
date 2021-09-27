@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Navbar.css';
-import CartButton from '../Buttons/CartButton/CartButton';
+import CartWidget from '../Buttons/CartWidget/CartWidget';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 
@@ -40,7 +40,7 @@ const NavBar = () => {
                         <h2>Bourne</h2>
                         <h3>SECOND-HAND</h3>
                     </div>
-                    <CartButton />
+                    <CartWidget />
                 </div>
                 { showMenu ? null : <div className='menu-icon'>
                     <MenuIcon onClick={(e) => handleShowMenu(e)} />

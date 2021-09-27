@@ -6,6 +6,7 @@
     justify-content: center;
     transition: 0.2s;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .cart-icon-container:hover {
