@@ -1,0 +1,18 @@
+.item-count-container {
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.18); 
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.18);
+    margin-left: 10rem;
+    flex-direction: column;
+}
+.item-count-container button {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.18);
+    border: none;
+    margin: .5rem;
+    padding: .3rem;
+}

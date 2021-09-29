@@ -40,10 +40,10 @@ const NavBar = () => {
                         <h2>Bourne</h2>
                         <h3>SECOND-HAND</h3>
                     </div>
-                    <CartWidget />
+                    <CartWidget className='cart-icon' />
                 </div>
                 { showMenu ? null : <div className='menu-icon'>
-                    <MenuIcon onClick={(e) => handleShowMenu(e)} />
+                    <MenuIcon className='menu-icon' onClick={(e) => handleShowMenu(e)} />
                 </div>}
                 { showMenu ? <NavBarModal /> : null }
                 <nav className='menu'>
