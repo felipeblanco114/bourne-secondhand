@@ -7,19 +7,25 @@ import CloseIcon from '@material-ui/icons/Close';
 const NavBar = () => {
 
     const [ showMenu, setShowMenu ] = useState(false);
+    const [ popup, setPopup ] = useState(false);
 
     const handleShowMenu = (e) => {
         e.preventDefault();
         if(showMenu === false) {
             setShowMenu(true);
+            setPopup(false);
         } else {
-            setShowMenu(false);
+            setPopup(true);
+            setTimeout(() => {
+                setShowMenu(false);
+                setPopup(false);
+            }, (420));
         }
     }
 
     const NavBarModal = () => {
         return (
-            <div className='modal-background'>
+            <div className={ !popup ? 'modal-background' : 'close-popup' }>
                 <CloseIcon onClick={(e) => handleShowMenu(e)} className='close-icon' />
                 <nav className='navbar-modal'>
                     <ul>

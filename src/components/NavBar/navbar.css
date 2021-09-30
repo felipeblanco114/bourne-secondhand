@@ -24,6 +24,10 @@
     align-items: center;
     justify-content: space-between;
     width: 12rem;
+    animation-name: menu-animation;
+    animation-duration: .2s;
+    transition-timing-function: ease-in;
+    animation-fill-mode: forwards;
 }
 .navbar .logo {
     display: flex;
@@ -85,6 +89,18 @@
 }
 .menu-icon {
     display: none;
+    animation-name: menu-animation;
+    animation-duration: .2s;
+    transition-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+@keyframes menu-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .navbar-modal {
@@ -116,7 +132,7 @@
         background-size: cover;
         color: rgb(155, 0, 36);
         font-family: 'Bebas', sans-serif;
-        font-size: 3rem;
+        font-size: 4.5rem;
         justify-content: center;
         align-items: flex-start;
     }
@@ -142,6 +158,7 @@
         transition: 0.2s;
         animation-name: modal-animation;
         animation-duration: 1s;
+        transition-timing-function: ease-in;
         animation-fill-mode: forwards;
     }
     @keyframes modal-animation {
@@ -161,6 +178,7 @@
           top: 0px;
         } 
     }
+
     .close-icon {
         top: 1rem;
         right: 1rem;
@@ -175,6 +193,33 @@
     }
     .cart-icon {
         transform: scale(1.2);
+    }
+    .close-popup {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(36, 0, 0, 0.76);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        transition: 0.2s;
+        animation-name: popup-animation;
+        animation-duration: .45s;
+        transition-timing-function: ease-in;
+        animation-fill-mode: forwards;
+    }
+    @keyframes popup-animation {
+        0% {
+          top: 0;
+        }
+        50% {
+            top: 2rem;
+            bottom: -2rem;
+        }
+        100% {
+          top: -100vh;
+        } 
     }
 }
 
