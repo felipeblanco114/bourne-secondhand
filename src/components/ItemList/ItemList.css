@@ -1,0 +1,15 @@
+.item-list {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    margin: auto;
+}
+@media (max-width: 700px) {
+    .item-list {
+        display: flex;
+        flex-direction: column;
+        width: 99%;
+        justify-content: center;
+        align-items: center;
+    }
+  }

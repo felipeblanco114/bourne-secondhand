@@ -21,7 +21,6 @@ const ItemCount = ({ stock, initial }) => {
     return (
         <div className='item-count-container'>
             <div>
-                <h4>Remera</h4>
             </div>
             <div>
                 <button disabled={count === 1} onClick={(e) => handleDiscount(e)} >-</button>
