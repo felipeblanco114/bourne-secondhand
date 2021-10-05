@@ -4,7 +4,7 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ItemCount from '../Buttons/ItemCount/ItemCount';
 
-const Item = ({ images, id, title, category, description, price, talle, alto, ancho, stock }) => {
+const Item = ({ images, id, title, category, description, price, talle, alto, ancho, stock, estado }) => {
 
     const [image, setImage] = useState(0);
 
@@ -24,8 +24,12 @@ const Item = ({ images, id, title, category, description, price, talle, alto, an
         }
     }
 
+    const onAdd = (qty, category) => {
+        alert(`Has agregado ${qty} ${qty > 1 ? category.toLowerCase() + 's' : category.toLowerCase()}`)
+    }
+
     return (
-        <div className='card-item'>
+        <div className='card-item' key={id}>
             <div className='card-header'>
                 <h3>{title}</h3>
             </div>
@@ -38,7 +42,7 @@ const Item = ({ images, id, title, category, description, price, talle, alto, an
                     </div> ) 
                 : null }
             </div>
-            <ItemCount initial={1} stock={stock} /> 
+            <ItemCount initial={1} stock={stock} onAdd={onAdd} category={category} /> 
         </div>
     )
 }

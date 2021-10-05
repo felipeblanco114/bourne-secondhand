@@ -4,19 +4,29 @@ import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
 import { data } from './constants/products';
 
-const { products } = data;
+// const { products } = data;
 
 const App = () => {
 
-    const [ itemList, setItemList ] = useState();
+    const [ itemList, setItemList ] = useState([]);
     const [ loading, setLoading ] = useState(true);
+
+    const getItems = async () => {
+        try {
+            const { products } = await data;
+            setItemList(products);
+            setLoading(false);
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
 
     useEffect(() => {
         setTimeout(() => {
-            setItemList(products);
-            setLoading(false);
-        }, 800)
-    }, [products, loading]);
+            getItems();
+        }, [1000])
+    }, [itemList]);
 
     return (
         <div className='app'>

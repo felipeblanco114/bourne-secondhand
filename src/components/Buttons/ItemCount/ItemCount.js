@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import './ItemCount.css';
 
-const ItemCount = ({ stock, initial }) => {
+const ItemCount = ({ stock, initial, onAdd, category }) => {
 
     const [count, setCount] = useState(initial);
     
-    const handleAdd = (e) => {
-        e.preventDefault();
+    const handleAdd = () => {
         count === stock ? 
         alert('Stock máximo.') 
         :
         setCount(count + 1);
     }
-    const handleDiscount = (e) => {
-        e.preventDefault();
+    const handleDiscount = () => {
         count !== 1 ?
         setCount(count - 1) :
         alert('La cantidad es la mínima.')
@@ -23,9 +21,12 @@ const ItemCount = ({ stock, initial }) => {
             <div>
             </div>
             <div>
-                <button disabled={count === 1} onClick={(e) => handleDiscount(e)} >-</button>
+                <button disabled={count === 1} onClick={() => handleDiscount()} >-</button>
                 {count}
-                <button disabled={stock === count} onClick={(e) => handleAdd(e)} >+</button>
+                <button disabled={stock === count} onClick={() => handleAdd()} >+</button>
+            </div>
+            <div>
+                <button onClick={() => onAdd(count, category)}>Añadir</button>
             </div>
         </div>
     )
