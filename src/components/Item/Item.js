@@ -3,10 +3,12 @@ import './Item.css';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ItemCount from '../Buttons/ItemCount/ItemCount';
+import Alert from '@material-ui/lab/Alert';
 
 const Item = ({ images, id, title, category, description, price, talle, alto, ancho, stock, estado }) => {
 
     const [image, setImage] = useState(0);
+    // const [successAlert, setSuccessAlert] = useState(false);
 
     const handleBefore = () => {
         if(image === 0) {
@@ -26,10 +28,15 @@ const Item = ({ images, id, title, category, description, price, talle, alto, an
 
     const onAdd = (qty, category) => {
         alert(`Has agregado ${qty} ${qty > 1 ? category.toLowerCase() + 's' : category.toLowerCase()}`)
+        // setSuccessAlert(true);
+        // setTimeout(() => {
+        //     setSuccessAlert(false);
+        // }, 2000);
     }
 
     return (
         <div className='card-item' key={id}>
+            {/* { successAlert ? <Alert id='success-alert' severity="success">Agregado al carrito.</Alert> : null } */}
             <div className='card-header'>
                 <h3>{title}</h3>
             </div>

@@ -26,13 +26,16 @@
 }
 .card-item:hover img {
     transition: 0.1s;
-    transform: scale(1.1);
+    transform: scale(1);
 }
 .card-item h3 {
     font-family: 'Bebas', sans-serif;
     font-weight: 300;
     color: rgb(155, 0, 36);
     padding: 0.2rem;
+    text-shadow: 0 0 2px rgb(40,40,40,.2); /* horizontal-offset vertical-offset 'blur' colour */
+  -moz-text-shadow: 0 0 2px rgb(40,40,40,.2);
+  -webkit-text-shadow: 0 0 2px rgb(40,40,40,.2);
 }
 .card-image {
     width: 16rem;
@@ -42,8 +45,9 @@
 .card-image img {
     height: 100%;
     width: 100%;
-    transform: scale(1.2);
+    transform: scale(1.1);
     object-fit: cover;
+    transition: 0.1s;
 }
 .arrows {
     width: 100%;
@@ -69,4 +73,11 @@
     color: rgb(155, 0, 36);
     background-color: rgba(255,255,255,0.4);
     margin-right: -.2rem;
+}
+#success-alert {
+    position: absolute;
+    left: auto;
+    right: auto;
+    top: 1rem;
+    z-index: 4;
 }

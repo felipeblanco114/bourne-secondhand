@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './ItemCount.css';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 const ItemCount = ({ stock, initial, onAdd, category }) => {
 
@@ -19,14 +20,12 @@ const ItemCount = ({ stock, initial, onAdd, category }) => {
     return (
         <div className='item-count-container'>
             <div>
-            </div>
-            <div>
-                <button disabled={count === 1} onClick={() => handleDiscount()} >-</button>
+                <button className='btn-count btn-count-1' disabled={count === 1} onClick={() => handleDiscount()} >-</button>
                 {count}
-                <button disabled={stock === count} onClick={() => handleAdd()} >+</button>
+                <button className='btn-count btn-count-2' disabled={stock === count} onClick={() => handleAdd()} >+</button>
             </div>
             <div>
-                <button onClick={() => onAdd(count, category)}>Añadir</button>
+                <button className='btn-count btn-count-3' onClick={() => onAdd(count, category)}><AddShoppingCartIcon /></button>
             </div>
         </div>
     )

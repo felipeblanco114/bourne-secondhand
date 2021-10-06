@@ -1,16 +1,64 @@
+@import url('http://fonts.cdnfonts.com/css/bebas');
+@import url('http://fonts.cdnfonts.com/css/bpg-arial');
 .item-count-container {
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: .2px solid rgb(155, 0, 36,0.6);
-    margin-top: .2rem;
+    border: .1px solid rgb(155, 0, 36,0.1);
+    margin-top: 0.1rem;
+    font-family: 'BPG Arial', sans-serif;
+    font-weight: bold;
 }
-.item-count-container button {
+.btn-count {
+    border: rgb(255,255,255);
+    background: none;
+    padding: 5px 10px;
+    font-size: 10px;
     cursor: pointer;
-    background-color: rgba(0,0,0,0.18);
+    margin: 10px;
+    transition: .2s;
+    position: relative;
+    overflow: hidden;
+}
+.btn-count-1,.btn-count-2 {
+    color: rgb(155, 0, 36,1);
+}
+.btn-count-1:hover,.btn-count-2:hover {
+    color: rgb(255, 255, 255);
+}
+.btn-count-3 {
+    background: rgb(155, 0, 36,1);
+    color: rgb(255,255,255);
+    width: 14rem;
+}
+.btn-count::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: rgb(155, 0, 36,1);
+    z-index: -1;
+    transition: .2s;
+}
+.btn-count-1::before,.btn-count-2::before {
+    top: 0;
+    
+    background: rgb(155, 0, 36,1);
+}
+.btn-count-3::before {
+    background: rgb(255,255,255);
+    height: 0%;
+}
+.btn-count-1:hover::before,.btn-count-2:hover::before {
+    height: 100%;
+}
+.btn-count[disabled] {
+    color: rgb(205,205,205,0.8)
+}
+.btn-count:hover[disabled] {
+    background: white;
     border: none;
-    margin: .5rem;
-    padding: .5rem;
 }
