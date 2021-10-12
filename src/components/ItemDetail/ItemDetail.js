@@ -13,16 +13,16 @@ const ItemDetail = ({ id, item }) => {
             { item ?
             (
                 <div>
-            <img src={item.images[0]} alt={item.title} style={{ maxHeight: '80vh' }} />
-            <div>
-                <h3>{item.title}</h3>
-                <div>
-                    <p>{item.description}</p>
-                    <h4>${item.price}</h4>
-                    <ItemCount initial={1} stock={item.stock} onAdd={onAdd} category={item.category} />
+                    <img src={item.images[0]} alt={item.title} style={{ maxHeight: '80vh' }} />
+                    <div>
+                        <h3>{item.title}</h3>
+                        <div>
+                            <p>{item.description}</p>
+                            <h4>${item.price}</h4>
+                            <ItemCount initial={1} stock={item.stock} onAdd={onAdd} category={item.category} />
+                        </div>
+                    </div>
                 </div>
-            </div>
-            </div>
             ) : <CircularProgress />}
         </>
     )

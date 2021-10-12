@@ -6,9 +6,8 @@ import { data } from '../../constants/products';
 const ItemDetailContainer = ({ id }) => {
 
     const [item, setItem] = useState([]);
+    
     const filterItem = item.find( result => result.id === parseInt(id));
-    console.log(filterItem);
-    console.log(item);
 
     const getItems = async () => {
         try {
