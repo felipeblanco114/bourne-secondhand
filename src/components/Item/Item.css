@@ -37,6 +37,10 @@
   -moz-text-shadow: 0 0 2px rgb(40,40,40,.2);
   -webkit-text-shadow: 0 0 2px rgb(40,40,40,.2);
 }
+.card-item a {
+    text-decoration: none;
+    
+}
 .card-image {
     width: 16rem;
     height: 18rem;

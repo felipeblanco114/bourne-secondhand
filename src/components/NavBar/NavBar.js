@@ -3,6 +3,7 @@ import './Navbar.css';
 import CartWidget from '../Buttons/CartWidget/CartWidget';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
 
@@ -29,9 +30,9 @@ const NavBar = () => {
                 <CloseIcon onClick={(e) => handleShowMenu(e)} className='close-icon' />
                 <nav className='navbar-modal'>
                     <ul>
-                        <li>Bourne</li>
-                        <li>Productos</li>
-                        <li>Contacto</li>
+                        <li onClick={(e) => handleShowMenu(e)}><Link to='/'>Bourne</Link></li>
+                        <li onClick={(e) => handleShowMenu(e)}><Link to='/products/'>Productos</Link></li>
+                        <li onClick={(e) => handleShowMenu(e)}><Link to='/contact'>Contacto</Link></li>
                     </ul>
                 </nav>
             </div>
@@ -54,9 +55,9 @@ const NavBar = () => {
                 { showMenu ? <NavBarModal /> : null }
                 <nav className='menu'>
                     <ul>
-                        <li>Bourne</li>
-                        <li>Productos</li>
-                        <li>Contacto</li>
+                        <li><Link to='/'>Bourne</Link></li>
+                        <li><Link to='/products/'>Productos</Link></li>
+                        <li><Link to='/contact'>Contacto</Link></li>
                     </ul>
                 </nav>
             </div>

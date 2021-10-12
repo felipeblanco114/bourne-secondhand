@@ -2,7 +2,7 @@ export const data = {
     products: [
         {
             title: 'Sweater Gucci',
-            description: 'Sweater azul y amarillo especial para la primavera.',
+            description: 'Sweater azul y amarillo especial para el otoño.',
             estado: 10,
             talle: 38,
             alto: '60cm',
@@ -15,7 +15,7 @@ export const data = {
         },
         {
             title: 'Remera Tommy Hilfiger',
-            description: 'Sweater azul y amarillo especial para la primavera.',
+            description: 'Remera Tommy Hilfiger de excelente calidad',
             estado: 8,
             talle: 38,
             alto: '60cm',

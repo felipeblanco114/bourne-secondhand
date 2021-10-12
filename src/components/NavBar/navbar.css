@@ -74,7 +74,19 @@
     cursor: pointer;
     border-radius: 1px;
 }
-.navbar .menu ul li:hover {
+.navbar .menu ul li a {
+    font-size: .78rem;
+    list-style: none;
+    padding: .5rem;
+    margin-left: .4rem;
+    font-family: 'Bebas', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 1px;
+    color:rgba(255, 250, 250,0.95);
+    text-decoration: none;
+}
+.navbar .menu ul li:hover a {
     background-color: rgba(255, 250, 250,0.95);
     color: rgb(155, 0, 36);
     transition: .15s;
@@ -145,6 +157,10 @@
     .navbar-modal ul li {
         list-style: none;
         margin: 1.5rem;
+    }
+    .navbar-modal ul li a {
+        color:rgb(155, 0, 36);
+        text-decoration: none;
     }
     .modal-background {
         width: 100%;

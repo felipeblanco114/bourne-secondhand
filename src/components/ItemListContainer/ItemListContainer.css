@@ -4,7 +4,7 @@
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    background-color: rgba(200,200,200, 0.3);
+    background-color: rgba(230,230,230, 0.3);
     margin-top: 2.4rem;
     margin-bottom: 2.4rem;
     box-shadow: 0 1px 1px rgba(0,0,0,0.02), 
@@ -27,5 +27,6 @@
         padding: 0;
         align-items: center;
         justify-content: center;
+        margin-bottom: 10rem;
     }
   }
