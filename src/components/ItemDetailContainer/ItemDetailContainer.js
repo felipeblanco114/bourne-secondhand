@@ -2,17 +2,18 @@ import React, { useState, useEffect } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import './ItemDetailContainer.css';
 import { data } from '../../constants/products';
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 const ItemDetailContainer = ({ id }) => {
 
     const [item, setItem] = useState([]);
-    
-    const filterItem = item.find( result => result.id === parseInt(id));
+    const [loading, setLoading] = useState(true);
 
     const getItems = async () => {
         try {
             const { products } = await data;
-            setItem(products);
+            setItem(products.find( result => result.id === parseInt(id)));
+            setLoading(false);
         }
         catch (err) {
             console.log(err);
@@ -26,8 +27,8 @@ const ItemDetailContainer = ({ id }) => {
     }, [item]);
 
     return (
-        <div>
-            <ItemDetail id={id} item={filterItem} />
+        <div className={loading ? 'loading' : 'item-detail-container'}>
+            { loading ? <CircularProgress style={{ 'color': 'rgb(155, 0, 36)' }} /> : <ItemDetail id={id} item={item} />}
         </div>
     )
 }

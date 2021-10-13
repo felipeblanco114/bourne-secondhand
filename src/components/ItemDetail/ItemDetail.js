@@ -1,6 +1,6 @@
 import React from 'react';
 import ItemCount from '../Buttons/ItemCount/ItemCount';
-import CircularProgress from '@material-ui/core/CircularProgress'
+import './ItemDetail.css';
 
 const ItemDetail = ({ id, item }) => {
 
@@ -12,9 +12,11 @@ const ItemDetail = ({ id, item }) => {
         <>
             { item ?
             (
-                <div>
-                    <img src={item.images[0]} alt={item.title} style={{ maxHeight: '80vh' }} />
-                    <div>
+                <div className='item-details'>
+                    <div className='img-detail-container'>
+                        <img src={item.images[0]} alt={item.title} />
+                    </div>
+                    <div className='product-details'>
                         <h3>{item.title}</h3>
                         <div>
                             <p>{item.description}</p>
@@ -23,7 +25,7 @@ const ItemDetail = ({ id, item }) => {
                         </div>
                     </div>
                 </div>
-            ) : <CircularProgress />}
+            ) : 'No se encontraron productos con ese ID.'}
         </>
     )
 }

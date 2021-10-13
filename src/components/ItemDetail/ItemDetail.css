@@ -1,0 +1,19 @@
+.item-details {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+.img-detail-container {
+    width: 40%;
+    height: 100%;
+    overflow: hidden;
+}
+.img-detail-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.product-details {
+    width: 55%;
+}

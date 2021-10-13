@@ -1,0 +1,15 @@
+.item-detail-container {
+    width: 95%;
+    padding: .5rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    background-color: rgba(250,250,250, .95);
+    margin-top: 2.4rem;
+    margin-bottom: 2.4rem;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.02), 
+                0 2px 2px rgba(0,0,0,0.02), 
+                0 4px 4px rgba(0,0,0,0.02), 
+                0 8px 8px rgba(0,0,0,0.02),
+                0 16px 16px rgba(0,0,0,0.02);
+}

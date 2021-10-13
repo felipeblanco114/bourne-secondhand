@@ -1,8 +1,10 @@
 .item-list {
     display: flex;
     flex-direction: row;
-    width: 95%;
+    justify-content: center;
+    width: 100%;
     margin: auto;
+    flex-wrap: wrap;
 }
 .loading {
     width: 100%;
