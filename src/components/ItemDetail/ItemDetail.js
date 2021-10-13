@@ -17,11 +17,15 @@ const ItemDetail = ({ id, item }) => {
                         <img src={item.images[0]} alt={item.title} />
                     </div>
                     <div className='product-details'>
-                        <h3>{item.title}</h3>
-                        <div>
-                            <p>{item.description}</p>
-                            <h4>${item.price}</h4>
-                            <ItemCount initial={1} stock={item.stock} onAdd={onAdd} category={item.category} />
+                        <h1>{item.title}</h1>
+                        <div className='details-descriptions'>
+                            <div>
+                                <p>{item.description}</p>
+                                <h2>${item.price}</h2>
+                            </div>
+                            <div>
+                                <ItemCount initial={1} stock={item.stock} onAdd={onAdd} category={item.category} />
+                            </div>
                         </div>
                     </div>
                 </div>
