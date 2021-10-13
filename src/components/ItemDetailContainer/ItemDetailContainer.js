@@ -24,7 +24,7 @@ const ItemDetailContainer = ({ id }) => {
         setTimeout(() => {
             getItems();
         }, [1000])
-    }, [item]);
+    });
 
     return (
         <div className={loading ? 'loading' : 'item-detail-container'}>
