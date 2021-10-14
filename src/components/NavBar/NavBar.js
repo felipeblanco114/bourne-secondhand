@@ -3,12 +3,14 @@ import './Navbar.css';
 import CartWidget from '../Buttons/CartWidget/CartWidget';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const NavBar = () => {
 
     const [ showMenu, setShowMenu ] = useState(false);
     const [ popup, setPopup ] = useState(false);
+
+    const history = useHistory();
 
     const handleShowMenu = (e) => {
         e.preventDefault();
@@ -22,6 +24,10 @@ const NavBar = () => {
                 setPopup(false);
             }, (420));
         }
+    }
+    
+    const handleLink = () => {
+        history.push('/');
     }
 
     const NavBarModal = () => {
@@ -43,7 +49,7 @@ const NavBar = () => {
         <div className='navbar-container'>
             <div className='navbar'>
                 <div className='navbar-left'>
-                    <div className='logo'>
+                    <div onClick={handleLink} className='logo'>
                         <h2>Bourne</h2>
                         <h3>SECOND-HAND</h3>
                     </div>
