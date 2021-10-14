@@ -77,6 +77,14 @@
     justify-content: space-between;
     height: 100%;
 }
+.arrows-details {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    top: -15rem;
+}
 @media (max-width: 700px) {
     .item-details {
         display: flex;
@@ -95,5 +103,13 @@
     }
     .talles-estado {
         margin-bottom: 2rem;
+    }
+    .arrows-details {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
+        top: -11rem;
     }
 }

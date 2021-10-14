@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ItemCount from '../Buttons/ItemCount/ItemCount';
 import './ItemDetail.css';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 const ItemDetail = ({ id, item }) => {
+
+    const [image, setImage] = useState(0);
+
+    const handleBefore = () => {
+        if(image === 0) {
+            setImage(item.images.length - 1);
+        } else {
+            setImage(image - 1);
+        }
+    }
+
+    const handleNext = () => {
+        if(image === item.images.length -1) {
+            setImage(0);
+        } else {
+            setImage(image + 1);
+        }
+    }
 
     const onAdd = (qty, category) => {
         alert(`Has agregado ${qty} ${qty > 1 ? category.toLowerCase() + 's' : category.toLowerCase()}`)
@@ -14,7 +34,14 @@ const ItemDetail = ({ id, item }) => {
             (
                 <div className='item-details'>
                     <div className='img-detail-container'>
-                        <img src={item.images[0]} alt={item.title} />
+                        <img src={item.images[image]} alt={item.title} />
+                        { item.images.length > 1 ? (
+                            <div className='arrows-details'>
+                            <ArrowBackIosIcon id='retroceder' onClick={handleBefore} disabled={image === 0} />
+                            <ArrowForwardIosIcon id='next' onClick={handleNext} disabled={image === (item.images.length - 1)} />
+                            </div> ) 
+                        : null 
+                        }
                     </div>
                     <div className='product-details'>
                         <h1>{item.title}</h1>
