@@ -59,7 +59,7 @@
     flex-direction: row;
     justify-content: space-between;
     position: relative;
-    top: -12rem;
+    top: -10rem;
 }
 #retroceder {
     text-decoration: none;

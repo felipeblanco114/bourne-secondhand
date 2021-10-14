@@ -21,7 +21,7 @@ const ItemCount = ({ stock, initial, onAdd, category }) => {
         <div className='item-count-container'>
             <div>
                 <button className='btn-count btn-count-1' disabled={count === 1} onClick={() => handleDiscount()} >-</button>
-                {count}
+                {stock === 1 ? 'STOCK ÚNICO' : count}
                 <button className='btn-count btn-count-2' disabled={stock === count} onClick={() => handleAdd()} >+</button>
             </div>
             <div>
