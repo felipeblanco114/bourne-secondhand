@@ -19,7 +19,7 @@ const ItemDetail = ({ id, item }) => {
                     <div className='product-details'>
                         <h1>{item.title}</h1>
                         <div className='details-descriptions'>
-                            <div>
+                            <div className='description-price'>
                                 <p>{item.description}</p>
                                 <h2>${item.price}</h2>
                             </div>
