@@ -1,3 +1,6 @@
+Bourne Second-Hand es un ecommerce de ropa de segunda mano. Sitio web hecho con React JS para Coderhouse.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
