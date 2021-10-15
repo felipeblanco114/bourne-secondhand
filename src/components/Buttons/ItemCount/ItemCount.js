@@ -20,9 +20,9 @@ const ItemCount = ({ stock, initial, onAdd, category }) => {
     return (
         <div className='item-count-container'>
             <div>
-                <button className='btn-count btn-count-1' disabled={count === 1} onClick={() => handleDiscount()} >-</button>
-                {stock === 1 ? 'STOCK ÚNICO' : count}
-                <button className='btn-count btn-count-2' disabled={stock === count} onClick={() => handleAdd()} >+</button>
+                { stock === 1 ? null : <button className='btn-count btn-count-1' disabled={count === 1} onClick={() => handleDiscount()} >-</button>}
+                {stock === 1 ? <p>STOCK ÚNICO</p> : count}
+                { stock === 1 ? null : <button className='btn-count btn-count-2' disabled={stock === count} onClick={() => handleAdd()} >+</button>}
             </div>
             <div>
                 <button className='btn-count btn-count-3' onClick={() => onAdd(count, category)}><AddShoppingCartIcon /></button>

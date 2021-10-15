@@ -4,6 +4,7 @@ import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
 import ItemDetailPage from './components/ItemDetailPage/ItemDetailPage.js';
 import Home from './components/Home/Home.js';
+import Footer from './components/Footer/Footer';
 import {
   BrowserRouter as Router,
   Switch,
@@ -30,6 +31,8 @@ const App = () => {
                         <Home />
                     </Route>
                 </Switch>
+                
+                <Footer />
 
             </Router>
         </div>

@@ -2,8 +2,9 @@
 @import url('http://fonts.cdnfonts.com/css/bpg-arial');
 .item-count-container {
     width: 100%;
+    height: 6rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     border: .1px solid rgb(155, 0, 36,0.1);
@@ -11,6 +12,9 @@
     font-family: 'BPG Arial', sans-serif;
     font-weight: bold;
     color: rgb(155, 0, 36);
+}
+.item-count-container p {
+    padding: .5rem;
 }
 .btn-count {
     border: rgb(255,255,255);
