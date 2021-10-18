@@ -7,4 +7,5 @@
     min-height: 100vh;
     background-image: url(/src/assets/img/background-app.jpg);
     background-size: cover;
+    scroll-behavior: 2px;
 }
