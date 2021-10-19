@@ -15,7 +15,7 @@
 .home-container .logo {
     text-align: center;
     font-family: 'Bebas', sans-serif;
-    color: rgb(173, 0, 40);
+    color: rgb(255, 255, 255);
     user-select: none;
 }
 .home-container .logo h1 {
@@ -24,6 +24,11 @@
 .home-container .logo h2 {
     margin-top: -.7rem;
     font-size: 1.2rem;
+}
+.home-container .logo h3 {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    letter-spacing: 1px;
 }
 .home-container .box {
     position: relative;
@@ -77,4 +82,5 @@
 .home-container .box:hover .content {
     transform: scale(1.1);
     transition: 0.2s;
+    color: rgb(255,255,255);
 }

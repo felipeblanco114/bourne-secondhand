@@ -20,10 +20,6 @@ const Home = () => {
 
     return (
         <div className='home-container'>
-            <div className='logo'>
-                <h1>Bourne</h1>
-                <h2>Second-Hand</h2>
-            </div>
             <div className='home-img-container'>
                 <div onClick={() => handleHome('products/')} className='box'>
                     <div className='img-box'>
@@ -40,7 +36,11 @@ const Home = () => {
                         <img src={img2} alt='bourne' />
                     </div>
                     <div className='content'>
-                        <div></div>
+                        <div className='logo'>
+                            <h1>Bourne</h1>
+                            <h2>Second-Hand</h2>
+                            <h3>OTRA FORMA DE VESTIR</h3>
+                        </div>
                     </div>
                 </div>
                 <div onClick={() => handleHome('contact/')} className='box'>

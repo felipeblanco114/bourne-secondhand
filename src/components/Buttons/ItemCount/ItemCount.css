@@ -20,10 +20,10 @@
     border: rgb(255,255,255);
     background: none;
     padding: 5px 10px;
-    font-size: 10px;
+    font-size: 1rem;
     cursor: pointer;
     margin: 10px;
-    transition: .2s;
+    transition: 0s;
     position: relative;
     overflow: hidden;
 }
@@ -61,9 +61,11 @@
     height: 100%;
 }
 .btn-count[disabled] {
-    color: rgb(205,205,205,0.8)
+    color: rgb(205,205,205,0.8);
+    visibility: hidden;
 }
 .btn-count:hover[disabled] {
     background: white;
     border: none;
+    visibility: hidden;
 }
