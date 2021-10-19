@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
@@ -13,18 +13,20 @@ import {
 
 const App = () => {
 
+    const [cart, setCart] = useState([]);
+
     return (
         <>
         <div className='app'>
             <Router>
-                <NavBar />
+                <NavBar cart={cart} />
 
                 <Switch>
                     <Route exact path='/products'>
-                        <ItemListContainer />
+                        <ItemListContainer cart={cart} setCart={setCart} />
                     </Route>
                     <Route path='/products/:id'>
-                        <ItemDetailPage />
+                        <ItemDetailPage cart={cart} setCart={setCart} />
                     </Route>
 
                     <Route exact path='/'>

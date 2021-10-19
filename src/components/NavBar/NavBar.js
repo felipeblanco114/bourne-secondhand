@@ -5,7 +5,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import { Link, useHistory } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ cart }) => {
 
     const [ showMenu, setShowMenu ] = useState(false);
     const [ popup, setPopup ] = useState(false);
@@ -53,6 +53,7 @@ const NavBar = () => {
                         <h2>Bourne</h2>
                         <h3>SECOND-HAND</h3>
                     </div>
+                    {cart.length ? (<div className='number-cart'><span>{cart.length}</span></div>) : null}
                     <CartWidget className='cart-icon' />
                 </div>
                 { showMenu ? null : <div className='menu-icon'>

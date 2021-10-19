@@ -4,7 +4,7 @@ import './ItemDetail.css';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
-const ItemDetail = ({ id, item }) => {
+const ItemDetail = ({ id, item, cart, setCart }) => {
 
     const [image, setImage] = useState(0);
 
@@ -25,7 +25,13 @@ const ItemDetail = ({ id, item }) => {
     }
 
     const onAdd = (qty, category) => {
-        alert(`Has agregado ${qty} ${qty > 1 ? category.toLowerCase() + 's' : category.toLowerCase()}`)
+        const exist = cart.find((x) => x.id === item.id);
+        if(exist) {
+            return null
+        } else {
+            setCart([...cart, item.id]);
+        }
+        alert(`Has agregado ${qty} ${qty > 1 ? category.toLowerCase() + 's' : category.toLowerCase()}`);
     }
 
     return (
@@ -62,7 +68,7 @@ const ItemDetail = ({ id, item }) => {
                                     </div>
                                 </div>
                                 <div>
-                                    <ItemCount initial={1} stock={item.stock} onAdd={onAdd} category={item.category} />
+                                    <ItemCount initial={1} stock={item.stock} onAdd={onAdd} category={item.category} product={item} cart={cart} />
                                 </div>
                             </div>
                         </div>

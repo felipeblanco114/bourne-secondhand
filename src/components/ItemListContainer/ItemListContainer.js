@@ -2,11 +2,11 @@ import React from 'react';
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css';
 
-const ItemListContainer = () => {
+const ItemListContainer = ({ cart, setCart }) => {
 
     return (
         <div className='item-list-container'>
-            <ItemList />
+            <ItemList cart={cart} setCart={setCart} />
         </div>
     )
 }

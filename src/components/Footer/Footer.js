@@ -13,7 +13,7 @@ const Footer = () => {
                 <WhatsAppIcon fontSize='small' style={{ cursor: 'pointer' }} />
             </div>
             <div>
-                <p>Hecha por Felipe Blanco Muzzolón</p>
+                <p>Felipe Blanco Muzzolón</p>
             </div>
         </footer>
     )

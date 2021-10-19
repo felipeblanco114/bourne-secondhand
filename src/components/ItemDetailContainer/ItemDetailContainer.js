@@ -4,7 +4,7 @@ import './ItemDetailContainer.css';
 import { data } from '../../constants/products';
 import CircularProgress from '@material-ui/core/CircularProgress'
 
-const ItemDetailContainer = ({ id }) => {
+const ItemDetailContainer = ({ id, cart, setCart }) => {
 
     const [item, setItem] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -28,7 +28,7 @@ const ItemDetailContainer = ({ id }) => {
 
     return (
         <div className={loading ? 'loading' : 'item-detail-container'}>
-            { loading ? <CircularProgress style={{ 'color': 'rgb(155, 0, 36)' }} /> : <ItemDetail id={id} item={item} />}
+            { loading ? <CircularProgress style={{ 'color': 'rgb(155, 0, 36)' }} /> : <ItemDetail cart={cart} setCart={setCart} id={id} item={item} />}
         </div>
     )
 }

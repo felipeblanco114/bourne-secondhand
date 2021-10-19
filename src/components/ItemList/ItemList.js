@@ -4,7 +4,7 @@ import Item from '../Item/Item';
 import { data } from '../../constants/products';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const ItemList = () => {
+const ItemList = ({ cart, setCart}) => {
 
     const [ itemList, setItemList ] = useState([]);
     const [ loading, setLoading ] = useState(true);
@@ -34,6 +34,7 @@ const ItemList = () => {
             <Item   images={product.images} title={product.title} description={product.description} estado={product.estado}
                     category={product.category} price={product.price} talle={product.talle} key={product.id}
                     alto={product.alto} ancho={product.ancho} stock={product.stock} quantity={product.quantity} id={product.id}
+                    cart={cart} setCart={setCart}
             />
         ))
         }

@@ -5,10 +5,13 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ItemCount from '../Buttons/ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 
-const Item = ({ images, id, title, category, description, price, talle, alto, ancho, stock, estado }) => {
+const Item = ({ images, id, title, category, description, price, talle, alto, ancho, stock, estado, cart, setCart }) => {
+
+    const product = {id, title, price, stock};
 
     const [image, setImage] = useState(0);
     // const [successAlert, setSuccessAlert] = useState(false);
+    console.log(cart)
 
     const handleBefore = () => {
         if(image === 0) {
@@ -27,11 +30,13 @@ const Item = ({ images, id, title, category, description, price, talle, alto, an
     }
 
     const onAdd = (qty, category) => {
-        alert(`Has agregado ${qty} ${qty > 1 ? category.toLowerCase() + 's' : category.toLowerCase()}`)
-        // setSuccessAlert(true);
-        // setTimeout(() => {
-        //     setSuccessAlert(false);
-        // }, 2000);
+        const exist = cart.find((x) => x.id === product.id);
+        if(exist) {
+            return null
+        } else {
+            setCart([...cart, product.id]);
+        }
+        alert(`Has agregado ${qty} ${qty > 1 ? category.toLowerCase() + 's' : category.toLowerCase()}`);
     }
 
     return (
@@ -49,7 +54,7 @@ const Item = ({ images, id, title, category, description, price, talle, alto, an
                     </div> ) 
                 : null }
             </div>
-            <ItemCount initial={1} stock={stock} onAdd={onAdd} category={category} /> 
+            <ItemCount initial={1} stock={stock} onAdd={onAdd} category={category} cart={cart} product={product} /> 
         </div>
     )
 }
