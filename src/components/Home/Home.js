@@ -4,10 +4,7 @@ import img1 from '../../assets/img/bourne-girls-style2.jpg';
 import img2 from '../../assets/img/bourne-clothes-city.jpg';
 import img3 from '../../assets/img/bourne-clothes2.jpg';
 import {
-    BrowserRouter as Router,
     useHistory,
-    Switch,
-    Route
   } from "react-router-dom";
 
 const Home = () => {
