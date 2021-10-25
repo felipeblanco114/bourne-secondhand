@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import {useParams} from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import './ItemDetailContainer.css';
 import { data } from '../../constants/products';
 import CircularProgress from '@material-ui/core/CircularProgress'
 
-const ItemDetailContainer = ({ id, cart, setCart }) => {
+
+const ItemDetailContainer = () => {
 
     const [item, setItem] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    let { id } = useParams();
 
     const getItems = async () => {
         try {
@@ -28,7 +32,7 @@ const ItemDetailContainer = ({ id, cart, setCart }) => {
 
     return (
         <div className={loading ? 'loading' : 'item-detail-container'}>
-            { loading ? <CircularProgress style={{ 'color': 'rgb(155, 0, 36)' }} /> : <ItemDetail cart={cart} setCart={setCart} id={id} item={item} />}
+            { loading ? <CircularProgress style={{ 'color': 'rgb(155, 0, 36)' }} /> : <ItemDetail id={id} item={item} />}
         </div>
     )
 }

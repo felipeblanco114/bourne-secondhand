@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
-import './Navbar.css';
+import React, { useState, useContext } from 'react';
+import './navbar.css';
 import CartWidget from '../Buttons/CartWidget/CartWidget';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import { Link, useHistory } from "react-router-dom";
+import {CartContext} from '../../contexts/CartContext';
 
-const NavBar = ({ cart }) => {
+const NavBar = () => {
 
     const [ showMenu, setShowMenu ] = useState(false);
     const [ popup, setPopup ] = useState(false);
+    
+    const {cart} = useContext(CartContext);
 
     const history = useHistory();
 

@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import './ItemCount.css';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
-const ItemCount = ({ stock, initial, onAdd, category, cart, setCart, product }) => {
+const ItemCount = ({ stock, initial, onAdd, category, cart, setCart, product, cartId, setCartId }) => {
 
     const [count, setCount] = useState(initial);
-    console.log(cart);
     
     const handleAdd = () => {
         count === stock ? 
@@ -18,9 +17,11 @@ const ItemCount = ({ stock, initial, onAdd, category, cart, setCart, product }) 
         setCount(count - 1) :
         alert('La cantidad es la mínima.')
     }
+
+
     return (
         <>
-        { !cart?.includes(parseInt(product.id)) ?  (
+        { !cartId?.includes(parseInt(product.id)) ?  (
             <div className='item-count-container'>
                 <div>
                     { stock === 1 ? null : <button className='btn-count btn-count-1' disabled={count === 1} onClick={() => handleDiscount()} >-</button>}
@@ -28,7 +29,7 @@ const ItemCount = ({ stock, initial, onAdd, category, cart, setCart, product }) 
                     { stock === 1 ? null : <button className='btn-count btn-count-2' disabled={stock === count} onClick={() => handleAdd()} >+</button>}
                 </div>
                 <div>
-                    <button className='btn-count btn-count-3 add-cart' onClick={() => onAdd(count, category)}><AddShoppingCartIcon /></button>
+                    <button className='btn-count btn-count-3 add-cart' onClick={() => onAdd(count, product)}><AddShoppingCartIcon /></button>
                 </div>
             </div>
             ) : (

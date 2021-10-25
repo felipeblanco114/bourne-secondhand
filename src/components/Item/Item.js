@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './Item.css';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ItemCount from '../Buttons/ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
+import {CartContext} from '../../contexts/CartContext';
 
-const Item = ({ images, id, title, category, description, price, talle, alto, ancho, stock, estado, cart, setCart }) => {
+const Item = ({ images, id, title, category, description, price, talle, alto, ancho, stock, estado }) => {
 
-    const product = {id, title, price, stock};
+    const product = {id, title, price, stock, category};
+
+    const {cart, setCart, cartId, setCartId} = useContext(CartContext);
+
 
     const [image, setImage] = useState(0);
-    // const [successAlert, setSuccessAlert] = useState(false);
-    console.log(cart)
+    console.log(cart);
 
     const handleBefore = () => {
         if(image === 0) {
@@ -29,14 +32,15 @@ const Item = ({ images, id, title, category, description, price, talle, alto, an
         }
     }
 
-    const onAdd = (qty, category) => {
-        const exist = cart.find((x) => x.id === product.id);
+    const onAdd = (qty, product) => {
+        const exist = cartId.find((x) => x.id === product.id);
         if(exist) {
             return null
         } else {
-            setCart([...cart, product.id]);
+            setCart([...cart, product]);
+            setCartId([...cartId, product.id]);
         }
-        alert(`Has agregado ${qty} ${qty > 1 ? category.toLowerCase() + 's' : category.toLowerCase()}`);
+        alert(`Has agregado ${qty} ${qty > 1 ? product.category.toLowerCase() + 's' : product.category.toLowerCase()}`);
     }
 
     return (
@@ -54,7 +58,7 @@ const Item = ({ images, id, title, category, description, price, talle, alto, an
                     </div> ) 
                 : null }
             </div>
-            <ItemCount initial={1} stock={stock} onAdd={onAdd} category={category} cart={cart} product={product} /> 
+            <ItemCount initial={1} stock={stock} onAdd={onAdd} category={category} cart={cart} product={product} id={id} cartId={cartId} setCartId={setCartId} /> 
         </div>
     )
 }

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
 import ItemDetailPage from './components/ItemDetailPage/ItemDetailPage.js';
 import Home from './components/Home/Home.js';
 import Footer from './components/Footer/Footer';
+import {CartContext} from './contexts/CartContext';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,25 +15,31 @@ import {
 const App = () => {
 
     const [cart, setCart] = useState([]);
+    const [cartId, setCartId] = useState([]);
+    const providerValue = useMemo(() => ({cart, setCart, cartId, setCartId}), [cart, setCart, cartId, setCartId]);
 
     return (
         <>
         <div className='app'>
             <Router>
-                <NavBar cart={cart} />
+                <CartContext.Provider value={providerValue}>
 
-                <Switch>
-                    <Route exact path='/products'>
-                        <ItemListContainer cart={cart} setCart={setCart} />
-                    </Route>
-                    <Route path='/products/:id'>
-                        <ItemDetailPage cart={cart} setCart={setCart} />
-                    </Route>
+                    <NavBar />
 
-                    <Route exact path='/'>
-                        <Home />
-                    </Route>
-                </Switch>
+                    <Switch>
+                        <Route exact path='/products'>
+                            <ItemListContainer />
+                        </Route>
+                        <Route path='/products/:id'>
+                            <ItemDetailPage />
+                        </Route>
+
+                        <Route exact path='/'>
+                            <Home />
+                        </Route>
+                    </Switch>
+
+                </CartContext.Provider>
                 
                 <Footer />
 

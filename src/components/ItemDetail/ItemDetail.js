@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import ItemCount from '../Buttons/ItemCount/ItemCount';
 import './ItemDetail.css';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import {CartContext} from '../../contexts/CartContext';
 
-const ItemDetail = ({ id, item, cart, setCart }) => {
+const ItemDetail = ({ id, item }) => {
 
     const [image, setImage] = useState(0);
+    const {cart, setCart, cartId, setCartId} = useContext(CartContext);
 
     const handleBefore = () => {
         if(image === 0) {
@@ -24,14 +26,15 @@ const ItemDetail = ({ id, item, cart, setCart }) => {
         }
     }
 
-    const onAdd = (qty, category) => {
+    const onAdd = (qty, item) => {
         const exist = cart.find((x) => x.id === item.id);
         if(exist) {
             return null
         } else {
             setCart([...cart, item.id]);
+            setCartId([...cartId, item.id]);
         }
-        alert(`Has agregado ${qty} ${qty > 1 ? category.toLowerCase() + 's' : category.toLowerCase()}`);
+        alert(`Has agregado ${qty} ${qty > 1 ? item.category.toLowerCase() + 's' : item.category.toLowerCase()}`);
     }
 
     return (
@@ -68,7 +71,7 @@ const ItemDetail = ({ id, item, cart, setCart }) => {
                                     </div>
                                 </div>
                                 <div>
-                                    <ItemCount initial={1} stock={item.stock} onAdd={onAdd} category={item.category} product={item} cart={cart} />
+                                    <ItemCount initial={1} stock={item.stock} cartId={cartId} setCartId={setCartId} onAdd={onAdd} category={item.category} product={item} cart={cart} />
                                 </div>
                             </div>
                         </div>
