@@ -1,3 +1,5 @@
+@import url('http://fonts.cdnfonts.com/css/bebas-kai');
+
 .cart-container {
     width: 70%;
     min-height: 66vh;
@@ -5,7 +7,21 @@
     margin-right: auto;
     margin-top: 2.4rem;
     margin-bottom: 2.4rem;
+    font-family: 'Bebas', sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 .cart-item-container {
     border-bottom: .2px solid rgba(167, 11, 11, 0.3);
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    width: 90%;
+    height: 3rem;
+    justify-content: space-between;
+}
+.cart-item-container h3 {
+    padding: .3rem;
+    width: 100%;
 }
