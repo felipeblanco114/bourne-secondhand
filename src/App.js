@@ -5,6 +5,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer.
 import ItemDetailPage from './components/ItemDetailPage/ItemDetailPage.js';
 import Home from './components/Home/Home.js';
 import Footer from './components/Footer/Footer';
+import Cart from './components/Cart/Cart';
 import {CartContext} from './contexts/CartContext';
 import {
   BrowserRouter as Router,
@@ -36,6 +37,10 @@ const App = () => {
 
                         <Route exact path='/'>
                             <Home />
+                        </Route>
+
+                        <Route exact path='/cart'>
+                            <Cart />
                         </Route>
                     </Switch>
 

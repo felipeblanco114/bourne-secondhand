@@ -29,8 +29,8 @@ const NavBar = () => {
         }
     }
     
-    const handleLink = () => {
-        history.push('/');
+    const handleLink = (link) => {
+        history.push(link);
     }
 
     const NavBarModal = () => {
@@ -52,7 +52,7 @@ const NavBar = () => {
         <div className='navbar-container'>
             <div className='navbar'>
                 <div className='navbar-left'>
-                    <div onClick={handleLink} className='logo'>
+                    <div onClick={() => handleLink('/')} className='logo'>
                         <h2>Bourne</h2>
                         <h3>SECOND-HAND</h3>
                     </div>

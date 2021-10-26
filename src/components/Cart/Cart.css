@@ -1,0 +1,11 @@
+.cart-container {
+    width: 70%;
+    min-height: 66vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2.4rem;
+    margin-bottom: 2.4rem;
+}
+.cart-item-container {
+    border-bottom: .2px solid rgba(167, 11, 11, 0.3);
+}

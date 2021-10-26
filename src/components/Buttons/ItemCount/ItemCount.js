@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import './ItemCount.css';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import {useHistory} from 'react-router-dom';
 
 const ItemCount = ({ stock, initial, onAdd, category, cart, setCart, product, cartId, setCartId }) => {
 
     const [count, setCount] = useState(initial);
+
+    const history = useHistory();
     
     const handleAdd = () => {
         count === stock ? 
@@ -16,6 +19,10 @@ const ItemCount = ({ stock, initial, onAdd, category, cart, setCart, product, ca
         count !== 1 ?
         setCount(count - 1) :
         alert('La cantidad es la mínima.')
+    }
+
+    const handleLink = (link) => {
+        history.push(link);
     }
 
 
@@ -34,7 +41,7 @@ const ItemCount = ({ stock, initial, onAdd, category, cart, setCart, product, ca
             </div>
             ) : (
             <div className='proceed-to-purchase'>
-                <button className='btn-count btn-count-3 add-cart'>PROCEDER A LA COMPRA</button>
+                <button onClick={() => handleLink('/cart')} className='btn-count btn-count-3 add-cart'>PROCEDER A LA COMPRA</button>
             </div>
             )
             }
