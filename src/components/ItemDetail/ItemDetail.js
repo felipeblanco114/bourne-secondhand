@@ -4,6 +4,7 @@ import './ItemDetail.css';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import {CartContext} from '../../contexts/CartContext';
+import Swal from 'sweetalert2';
 
 const ItemDetail = ({ id, item }) => {
 
@@ -31,10 +32,19 @@ const ItemDetail = ({ id, item }) => {
         if(exist) {
             return null
         } else {
-            setCart([...cart, item.id]);
+            setCart([...cart, item]);
             setCartId([...cartId, item.id]);
         }
-        alert(`Has agregado ${qty} ${qty > 1 ? item.category.toLowerCase() + 's' : item.category.toLowerCase()}`);
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            icon: 'success',
+            title: `Has agregado ${qty} ${item.title}`,
+            showConfirmButton: false,
+            timer: 1500,
+            backdrop: `rgba(0,0,123,0.0)`,
+            height: '4rem',
+          });
     }
 
     return (

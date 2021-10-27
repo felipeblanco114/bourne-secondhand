@@ -5,6 +5,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ItemCount from '../Buttons/ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 import {CartContext} from '../../contexts/CartContext';
+import Swal from 'sweetalert2';
 
 const Item = ({ images, id, title, category, description, price, talle, alto, ancho, stock, estado }) => {
 
@@ -40,7 +41,16 @@ const Item = ({ images, id, title, category, description, price, talle, alto, an
             setCart([...cart, product]);
             setCartId([...cartId, product.id]);
         }
-        alert(`Has agregado ${qty} ${qty > 1 ? product.category.toLowerCase() + 's' : product.category.toLowerCase()}`);
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            icon: 'success',
+            title: `Has agregado ${qty} ${product.title}`,
+            showConfirmButton: false,
+            timer: 1500,
+            backdrop: `rgba(0,0,123,0.0)`,
+            height: '4rem',
+          });
     }
 
     return (
