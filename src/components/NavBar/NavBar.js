@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import './navbar.css';
 import CartWidget from '../Buttons/CartWidget/CartWidget';
 import MenuIcon from '@material-ui/icons/Menu';

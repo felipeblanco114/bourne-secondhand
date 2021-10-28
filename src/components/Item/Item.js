@@ -1,17 +1,15 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import './Item.css';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ItemCount from '../Buttons/ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../../contexts/CartContext';
-import Swal from 'sweetalert2';
 
 const Item = ({ images, id, title, category, description, price, talle, alto, ancho, stock, estado }) => {
 
-    const product = {id, title, price, stock, category};
+    // const product = {id, title, price, stock, category};
 
-    const {cart, setCart, cartId, setCartId, addCart, addItem} = useCartContext();
+    const {cart} = useCartContext();
 
 
     const [image, setImage] = useState(0);
@@ -49,7 +47,6 @@ const Item = ({ images, id, title, category, description, price, talle, alto, an
                     </div> ) 
                 : null }
             </div>
-            {/* <ItemCount initial={1} stock={stock} onAdd={onAdd} category={category} cart={cart} product={product} id={id} cartId={cartId} setCartId={setCartId} />  */}
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import ItemCount from '../Buttons/ItemCount/ItemCount';
 import './ItemDetail.css';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 const ItemDetail = ({ id, item }) => {
 
     const [image, setImage] = useState(0);
-    const {cart, setCart, cartId, setCartId, addItem, addCart } = useCartContext();
+    const {cart, cartId, setCartId, addItem, addCart } = useCartContext();
 
     const handleBefore = () => {
         if(image === 0) {

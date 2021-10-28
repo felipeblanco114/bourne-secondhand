@@ -28,6 +28,7 @@ const CartContextProvider = ({children}) => {
         let item = cart.find(item => item.item.id === id);
         let index = cart.indexOf(item);
         cart.splice(index,1);
+        cartId.splice(index,1);
         setqBuy (qBuy-item.cantidad)
         setCart([...cart]);
         setCartId([...cartId]);

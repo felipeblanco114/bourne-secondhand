@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {useCartContext} from '../../contexts/CartContext';
 import './Cart.css'
 import {useHistory} from 'react-router-dom';
@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 const Cart = () => {
 
-    const { cart, setCart, setCartId, cartId, deleteCart, deleteItem } = useCartContext();
+    const { cart, cartId, deleteCart, deleteItem } = useCartContext();
 
     const history = useHistory();
 
@@ -49,6 +49,19 @@ const Cart = () => {
           });
     }
 
+    const pxq = (a,b) => {
+        return a*b
+      }
+      let total = 0;
+    
+      const totalPxQ = (a, b) => {
+        let sum = a*b;
+        total = total + sum;
+        return total
+      }
+      
+      total = cart.map((item=> (totalPxQ(item.cantidad,item.item.price))));
+
     const checkout = () => {
         Swal.fire({
             title: '¿Estás seguro que deseas comprar estos productos?',
@@ -75,6 +88,7 @@ const Cart = () => {
                         <div className='cart-list-container'>
                             <h3 onClick={() => handleLink(`/products/${cartItem.id}`)}>{cartItem.item.title}</h3>
                             <h3>{cartItem.cantidad}</h3>
+                            <p>${pxq(cartItem.cantidad,cartItem.item.price)}</p>
                         </div>
                         <div>
                         <DeleteIcon style={{ cursor: 'pointer'}} onClick={() => removeToCart(cartItem, cartItem.item.id)}></DeleteIcon>
@@ -89,6 +103,7 @@ const Cart = () => {
                         Volver al catálogo
                     </h3>    
                 </div>}
+                <h2>${total[total.length-1]}</h2>
             </div>
             { cart.length ?
             <div>
