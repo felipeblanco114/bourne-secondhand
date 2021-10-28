@@ -84,6 +84,7 @@ const Cart = () => {
         <div className='cart-container'>
             <div>
                 { cart.length ? cart.map((cartItem) => (
+                    <>
                     <div className='cart-item-container' key={cartItem.item.id} >
                         <div className='cart-list-container'>
                             <h3 onClick={() => handleLink(`/products/${cartItem.id}`)}>{cartItem.item.title}</h3>
@@ -94,6 +95,8 @@ const Cart = () => {
                         <DeleteIcon style={{ cursor: 'pointer'}} onClick={() => removeToCart(cartItem, cartItem.item.id)}></DeleteIcon>
                         </div>
                     </div>
+                    <h2>${total[total.length-1]}</h2>
+                    </>
                 )) : 
                 <div style={{ textAlign: 'center', marginTop: '4rem' }}>
                     <h2>
@@ -103,7 +106,6 @@ const Cart = () => {
                         Volver al catálogo
                     </h3>    
                 </div>}
-                <h2>${total[total.length-1]}</h2>
             </div>
             { cart.length ?
             <div>
