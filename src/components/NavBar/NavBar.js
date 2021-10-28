@@ -4,14 +4,14 @@ import CartWidget from '../Buttons/CartWidget/CartWidget';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import { Link, useHistory } from "react-router-dom";
-import {CartContext} from '../../contexts/CartContext';
+import { useCartContext } from '../../contexts/CartContext';
 
 const NavBar = () => {
 
     const [ showMenu, setShowMenu ] = useState(false);
     const [ popup, setPopup ] = useState(false);
     
-    const {cart} = useContext(CartContext);
+    const {cart, qBuy} = useCartContext();
 
     const history = useHistory();
 
@@ -56,7 +56,7 @@ const NavBar = () => {
                         <h2>Bourne</h2>
                         <h3>SECOND-HAND</h3>
                     </div>
-                    {cart.length ? (<div className='number-cart'><span>{cart.length}</span></div>) : null}
+                    {cart.length ? (<div className='number-cart'><span>{qBuy}</span></div>) : null}
                     <CartWidget className='cart-icon' />
                 </div>
                 { showMenu ? null : <div className='menu-icon'>

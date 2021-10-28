@@ -3,12 +3,12 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import './CartWidget.css';
 import {useHistory} from 'react-router-dom';
-import {CartContext} from '../../../contexts/CartContext';
+import {useCartContext} from '../../../contexts/CartContext';
 
 const CartWidget = () => {
 
     const history = useHistory();
-    const {cart} = useContext(CartContext);
+    const {cart} = useCartContext();
 
     const handleLink = (link) => {
         history.push(link)

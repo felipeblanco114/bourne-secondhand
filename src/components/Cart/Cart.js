@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import {CartContext} from '../../contexts/CartContext';
+import {useCartContext} from '../../contexts/CartContext';
 import './Cart.css'
 import {useHistory} from 'react-router-dom';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -7,9 +7,12 @@ import Swal from 'sweetalert2';
 
 const Cart = () => {
 
+    const { cart, setCart, setCartId, cartId, deleteCart, deleteItem } = useCartContext();
+
     const history = useHistory();
 
-    const { cart, setCart, setCartId, cartId } = useContext(CartContext);
+    console.log(cart);
+    console.log(cartId);
 
     const handleLink = (link) => {
         history.push(link)
@@ -19,23 +22,21 @@ const Cart = () => {
         const exist = cart.find((x) => x.id === product.id);
         const existId = cartId.find((xid) => xid.id === id);
         if(exist || existId) {
-            setCart(cart.filter((x) => x.id !== product.id));
-            setCartId(cartId.filter((xid) => xid.id !== id));
+            deleteItem(id);
             Swal.fire({
                 toast: true,
                 position: 'top-end',
                 icon: 'success',
-                title: `Has eliminado ${product.title} del carro`,
+                title: `Has eliminado ${product.item.title} del carro`,
                 showConfirmButton: false,
-                timer: 1500,
+                timer: 2000,
                 backdrop: `rgba(0,0,123,0.0)`,
                 height: '4rem',
               });
         }
     }
     const removeAll = () => {
-        setCart([]);
-        setCartId([]);
+        deleteCart();
         Swal.fire({
             toast: true,
             position: 'top-end',
@@ -57,8 +58,7 @@ const Cart = () => {
             confirmButtonText: 'Comprar'
           }).then((result) => {
             if (result.isConfirmed) {
-                setCartId([]);
-                setCart([]);
+                deleteCart();
                 Swal.fire(
                     'Compra exitosa',
                     '¡Muchas gracias por elegirnos!',
@@ -71,12 +71,13 @@ const Cart = () => {
         <div className='cart-container'>
             <div>
                 { cart.length ? cart.map((cartItem) => (
-                    <div className='cart-item-container' key={cartItem.id} >
+                    <div className='cart-item-container' key={cartItem.item.id} >
                         <div className='cart-list-container'>
-                            <h3 onClick={() => handleLink(`/products/${cartItem.id}`)}>{cartItem.title}</h3>
+                            <h3 onClick={() => handleLink(`/products/${cartItem.id}`)}>{cartItem.item.title}</h3>
+                            <h3>{cartItem.cantidad}</h3>
                         </div>
                         <div>
-                        <DeleteIcon style={{ cursor: 'pointer'}} onClick={() => removeToCart(cartItem)}></DeleteIcon>
+                        <DeleteIcon style={{ cursor: 'pointer'}} onClick={() => removeToCart(cartItem, cartItem.item.id)}></DeleteIcon>
                         </div>
                     </div>
                 )) : 

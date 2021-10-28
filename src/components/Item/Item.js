@@ -4,14 +4,14 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ItemCount from '../Buttons/ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
-import {CartContext} from '../../contexts/CartContext';
+import { useCartContext } from '../../contexts/CartContext';
 import Swal from 'sweetalert2';
 
 const Item = ({ images, id, title, category, description, price, talle, alto, ancho, stock, estado }) => {
 
     const product = {id, title, price, stock, category};
 
-    const {cart, setCart, cartId, setCartId} = useContext(CartContext);
+    const {cart, setCart, cartId, setCartId, addCart, addItem} = useCartContext();
 
 
     const [image, setImage] = useState(0);
@@ -33,25 +33,6 @@ const Item = ({ images, id, title, category, description, price, talle, alto, an
         }
     }
 
-    const onAdd = (qty, product) => {
-        const exist = cartId.find((x) => x.id === product.id);
-        if(exist) {
-            return null
-        } else {
-            setCart([...cart, product]);
-            setCartId([...cartId, product.id]);
-        }
-        Swal.fire({
-            toast: true,
-            position: 'top-end',
-            icon: 'success',
-            title: `Has agregado ${qty} ${product.title}`,
-            showConfirmButton: false,
-            timer: 1500,
-            backdrop: `rgba(0,0,123,0.0)`,
-            height: '4rem',
-          });
-    }
 
     return (
         <div className='card-item' key={id}>
@@ -68,7 +49,7 @@ const Item = ({ images, id, title, category, description, price, talle, alto, an
                     </div> ) 
                 : null }
             </div>
-            <ItemCount initial={1} stock={stock} onAdd={onAdd} category={category} cart={cart} product={product} id={id} cartId={cartId} setCartId={setCartId} /> 
+            {/* <ItemCount initial={1} stock={stock} onAdd={onAdd} category={category} cart={cart} product={product} id={id} cartId={cartId} setCartId={setCartId} />  */}
         </div>
     )
 }

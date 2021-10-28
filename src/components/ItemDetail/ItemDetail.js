@@ -3,13 +3,13 @@ import ItemCount from '../Buttons/ItemCount/ItemCount';
 import './ItemDetail.css';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import {CartContext} from '../../contexts/CartContext';
+import { useCartContext } from '../../contexts/CartContext';
 import Swal from 'sweetalert2';
 
 const ItemDetail = ({ id, item }) => {
 
     const [image, setImage] = useState(0);
-    const {cart, setCart, cartId, setCartId} = useContext(CartContext);
+    const {cart, setCart, cartId, setCartId, addItem, addCart } = useCartContext();
 
     const handleBefore = () => {
         if(image === 0) {
@@ -28,23 +28,49 @@ const ItemDetail = ({ id, item }) => {
     }
 
     const onAdd = (qty, item) => {
-        const exist = cart.find((x) => x.id === item.id);
-        if(exist) {
-            return null
+        if (cart.length === 0) {
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'success',
+                title: `Has agregado ${qty} ${item.title}`,
+                showConfirmButton: false,
+                timer: 1500,
+                backdrop: `rgba(0,0,123,0.0)`,
+                height: '4rem',
+              });
+            addCart(qty);
+            addItem({item: item, cantidad: qty});
         } else {
-            setCart([...cart, item]);
-            setCartId([...cartId, item.id]);
+            let isInCart = cartId.includes(parseInt(id));
+            if(isInCart) {
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `Has agregado ${qty} ${item.title}`,
+                    showConfirmButton: false,
+                    timer: 1500,
+                    backdrop: `rgba(0,0,123,0.0)`,
+                    height: '4rem',
+                  });
+                addCart(qty);
+                isInCart.cantidad = isInCart.cantidad+qty;
+            } else {
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `Has agregado ${qty} ${item.title}`,
+                    showConfirmButton: false,
+                    timer: 1500,
+                    backdrop: `rgba(0,0,123,0.0)`,
+                    height: '4rem',
+                  });
+                addCart(qty);
+                addItem({ item: item, cantidad: qty });
+            }
         }
-        Swal.fire({
-            toast: true,
-            position: 'top-end',
-            icon: 'success',
-            title: `Has agregado ${qty} ${item.title}`,
-            showConfirmButton: false,
-            timer: 1500,
-            backdrop: `rgba(0,0,123,0.0)`,
-            height: '4rem',
-          });
     }
 
     return (
