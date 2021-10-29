@@ -87,7 +87,7 @@ const Cart = () => {
                     <>
                     <div className='cart-item-container' key={cartItem.item.id} >
                         <div className='cart-list-container'>
-                            <h3 onClick={() => handleLink(`/products/${cartItem.id}`)}>{cartItem.item.title}</h3>
+                            <h3 onClick={() => handleLink(`/products/${cartItem.item.id}`)}>{cartItem.item.title}</h3>
                             <h3>{cartItem.cantidad}</h3>
                             <p>${pxq(cartItem.cantidad,cartItem.item.price)}</p>
                         </div>
