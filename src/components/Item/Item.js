@@ -36,14 +36,15 @@ const Item = ({ images, id, title, category, description, price, talle, alto, an
         <div className='card-item' key={id}>
             {/* { successAlert ? <Alert id='success-alert' severity="success">Agregado al carrito.</Alert> : null } */}
             <div className='card-header'>
-                <Link to={`/products/${id}`}><h3>{title}</h3></Link>
+                {/* <Link to={`/products/${id}`}><h3>{title}</h3></Link> */}
             </div>
             <div className='card-image'>
-                <img src={images[image]} alt='product' />
+                <Link to={`/products/${id}`}><img src={images[image]} alt='product' /></Link>
                 { images.length > 1 ? (
                     <div className='arrows'>
-                    <ArrowBackIosIcon id='retroceder' onClick={handleBefore} disabled={image === 0} />
-                    <ArrowForwardIosIcon id='next' onClick={handleNext} disabled={image === (images.length - 1)} />
+                        <ArrowBackIosIcon id='retroceder' onClick={handleBefore} disabled={image === 0} />
+                        <Link to={`/products/${id}`}><div>IR AL PRODUCTO SELE</div></Link>
+                        <ArrowForwardIosIcon id='next' onClick={handleNext} disabled={image === (images.length - 1)} />
                     </div> ) 
                 : null }
             </div>

@@ -1,27 +1,26 @@
 @import url('http://fonts.cdnfonts.com/css/bebas');
 
 .card-item {
-    max-width: 18rem;
-    margin: .8rem;
-    background-color: rgb(255, 255, 255);
+    width: 25rem;
+    margin: 2rem;
+    background-color: none;
     color: rgb(53, 53, 53);
-    padding: 1rem;
     transition: 0.1s;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.02), 
+    /* box-shadow: 0 1px 1px rgba(0,0,0,0.02), 
               0 2px 2px rgba(0,0,0,0.02), 
               0 4px 4px rgba(0,0,0,0.02), 
               0 8px 8px rgba(0,0,0,0.02),
-              0 16px 16px rgba(0,0,0,0.02);
+              0 16px 16px rgba(0,0,0,0.02); */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .card-item:hover {
-    box-shadow: 0 1px 1px rgba(0,0,0,0.06), 
+    /* box-shadow: 0 1px 1px rgba(0,0,0,0.06), 
               0 2px 2px rgba(0,0,0,0.06), 
               0 4px 4px rgba(0,0,0,0.06), 
               0 8px 8px rgba(0,0,0,0.06),
-              0 16px 16px rgba(0,0,0,0.06);
+              0 16px 16px rgba(0,0,0,0.06); */
     transform: scale(1.02);
 }
 .card-item:hover img {
@@ -42,8 +41,8 @@
     
 }
 .card-image {
-    width: 16rem;
-    height: 18rem;
+    width: 25rem;
+    height: 27rem;
     overflow: hidden;
 }
 .card-image img {
@@ -53,13 +52,21 @@
     object-fit: cover;
     transition: 0.1s;
 }
+.card-item:hover .arrows {
+    display: flex;
+}
 .arrows {
     width: 100%;
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: space-between;
     position: relative;
-    top: -10rem;
+    top: -14rem;
+}
+.arrows div {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
 }
 #retroceder {
     text-decoration: none;
@@ -84,4 +91,15 @@
     right: auto;
     top: 1rem;
     z-index: 4;
+}
+
+@media screen and (max-width: 700px) {
+    .card-item {
+        width: 100%;
+        margin: 1rem 0 1rem 0;
+    }
+    .card-image {
+        width: 100%;
+        height: 100%;
+    }
 }
