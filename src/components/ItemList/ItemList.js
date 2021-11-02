@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './ItemList.css';
 import Item from '../Item/Item';
-import { data } from '../../constants/products';
+import { useParams } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import { getFirestore } from '../../services/getProducts';
 
 
 const ItemList = () => {
@@ -11,14 +11,29 @@ const ItemList = () => {
     const [ itemList, setItemList ] = useState([]);
     const [ loading, setLoading ] = useState(true);
 
+    const category = useParams();
+
     const getItems = async () => {
+        // try {
+        //     const { products } = await data;
+        //     setItemList(products);
+        //     setLoading(false);
+        // }
+        // catch (err) {
+        //     console.log(err);
+        // }
         try {
-            const { products } = await data;
-            setItemList(products);
+            const db = getFirestore();
+            const products = db.collection('products');
+            const allProducts = await products.get();
+            const items = [];
+            for(const doc of allProducts.docs){
+                items.push({ item: doc.data(), id: doc.id, ...doc.data()});
+            }
+            setItemList(items);
             setLoading(false);
-        }
-        catch (err) {
-            console.log(err);
+        } catch (error) {
+            console.log(error);
         }
     }
     console.log(itemList);
@@ -26,8 +41,8 @@ const ItemList = () => {
     useEffect(() => {
         setTimeout(() => {
             getItems();
-        }, [1000])
-    }, [itemList]);
+        }, [0])
+    }, [category]);
 
     
     return (

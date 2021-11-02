@@ -65,12 +65,10 @@
 }
 .btn-count[disabled] {
     color: rgb(205,205,205,0.8);
-    visibility: hidden;
 }
 .btn-count:hover[disabled] {
-    background: white;
     border: none;
-    visibility: hidden;
+    cursor: default;
 }
 .proceed-to-purchase {
     width: 100%;

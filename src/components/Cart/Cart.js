@@ -85,7 +85,6 @@ const Cart = () => {
             <div>
                 { cart.length ? cart.map((cartItem) => (
                     <>
-                    <h1> Mi carrito</h1>
                     <div className='cart-item-container' key={cartItem.item.id} >
                         <div className='cart-list-container'>
                             <div className='cart-list-image'>
@@ -97,6 +96,7 @@ const Cart = () => {
                                     <div>
                                         <h3>{cartItem.cantidad} {cartItem.cantidad === 1 ? 'UNIDAD' : 'UNIDADES'}</h3>
                                         <h3>${pxq(cartItem.cantidad,cartItem.item.price)}</h3>
+                                        <h3>TALLE: {cartItem.item.talle}</h3>
                                     </div>
                                     <div>
                                         <DeleteIcon style={{ cursor: 'pointer'}} onClick={() => removeToCart(cartItem, cartItem.item.id)}></DeleteIcon>
@@ -118,7 +118,7 @@ const Cart = () => {
             </div>
             { cart.length ?
             <div className='cart-footer'>
-                <h2>${total[total.length-1]}</h2>
+                <h2>TOTAL: ${total[total.length-1]}</h2>
                 <div>
                     <button onClick={() => checkout()}>COMPRAR</button>
                     <DeleteIcon style={{ cursor: 'pointer'}} className='delete' onClick={() => removeAll()}></DeleteIcon>

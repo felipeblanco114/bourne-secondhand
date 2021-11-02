@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import {useParams} from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import './ItemDetailContainer.css';
-import { data } from '../../constants/products';
 import CircularProgress from '@material-ui/core/CircularProgress'
+import { getFirestore } from '../../services/getProducts';
 
 
 const ItemDetailContainer = () => {
@@ -12,23 +12,16 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(true);
 
     let { id } = useParams();
+    
 
-    const getItems = async () => {
-        try {
-            const { products } = await data;
-            setItem(products.find( result => result.id === parseInt(id)));
-            setLoading(false);
-        }
-        catch (err) {
-            console.log(err);
-        }
-    }
 
     useEffect(() => {
-        setTimeout(() => {
-            getItems();
-        }, [1000])
-    });
+        const db = getFirestore();
+        db.collection('products').doc(id).get()
+            .then(resp => setItem({ id: resp.id, ...resp, ...resp.data() }))
+            .then(() => setLoading(false));
+    }, []);
+    console.log(item);
 
     return (
         <div className={loading ? 'loading' : 'item-detail-container'}>

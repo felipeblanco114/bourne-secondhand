@@ -1,7 +1,7 @@
 @import url('http://fonts.cdnfonts.com/css/bebas');
 
 .card-item {
-    width: 25rem;
+    width: 18rem;
     margin: 2rem;
     background-color: none;
     color: rgb(53, 53, 53);
@@ -25,7 +25,7 @@
 }
 .card-item:hover img {
     transition: 0.1s;
-    transform: scale(1);
+    transform: scale(1.1);
 }
 .card-item h3 {
     font-family: 'Bebas', sans-serif;
@@ -41,14 +41,14 @@
     
 }
 .card-image {
-    width: 25rem;
-    height: 27rem;
+    width: 18rem;
+    height: 22rem;
     overflow: hidden;
 }
 .card-image img {
     height: 100%;
     width: 100%;
-    transform: scale(1.1);
+    transform: scale(1);
     object-fit: cover;
     transition: 0.1s;
 }
@@ -61,7 +61,7 @@
     flex-direction: row;
     justify-content: space-between;
     position: relative;
-    top: -14rem;
+    top: -12rem;
 }
 .arrows div {
     width: 100%;
