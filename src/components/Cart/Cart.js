@@ -82,6 +82,7 @@ const Cart = () => {
     }
     return (
         <div className='cart-container'>
+            <h1>Mi carrito</h1>
             <div>
                 { cart.length ? cart.map((cartItem) => (
                     <>
@@ -91,7 +92,7 @@ const Cart = () => {
                                 <img src={cartItem.item.images[0]} alt={cartItem.item.title} />
                             </div>
                             <div className='cart-item-details'>
-                                <h3 onClick={() => handleLink(`/products/${cartItem.item.id}`)}>{cartItem.item.title}</h3>
+                                <h2 onClick={() => handleLink(`/products/${cartItem.item.id}`)}>{cartItem.item.title}</h2>
                                 <div>
                                     <div>
                                         <h3>{cartItem.cantidad} {cartItem.cantidad === 1 ? 'UNIDAD' : 'UNIDADES'}</h3>
