@@ -28,6 +28,18 @@
 .product-details h1 {
     margin-bottom: 2rem;
 }
+.title-brand {
+    height: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.title-brand h1 {
+    margin-bottom: -.1rem;
+}
+.title-brand p {
+    color: rgb(160,160,160)
+}
 .details-descriptions {
     height: 100%;
     display: flex;
@@ -84,6 +96,16 @@
     justify-content: space-between;
     position: relative;
     top: -15rem;
+}
+.img-brand {
+    width: 5rem;
+    height: 100%;
+    overflow: hidden;
+}
+.img-brand img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 @media (max-width: 700px) {
     .item-details {

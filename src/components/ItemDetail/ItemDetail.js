@@ -89,9 +89,17 @@ const ItemDetail = ({ id, item }) => {
                             </div> ) 
                         : null 
                         }
-                    </div>
+                    </div>  
                     <div className='product-details'>
-                        <h1>{item.title}</h1>
+                        <div className='title-brand'>
+                            <div>
+                                <h1>{item.title}</h1>
+                                <p>{item.brand.toUpperCase()}</p>
+                            </div>
+                            {item.brand_image ? <div className='img-brand'>
+                                <img src={item.brand_image} alt='item.brand' />
+                            </div>: <div></div>}
+                        </div>
                         <div className='details-descriptions'>
                             <div className='description-price'>
                                 <p>{item.description}</p>
