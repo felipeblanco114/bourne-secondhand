@@ -14,14 +14,6 @@ const ItemList = () => {
     const category = useParams();
 
     const getItems = async () => {
-        // try {
-        //     const { products } = await data;
-        //     setItemList(products);
-        //     setLoading(false);
-        // }
-        // catch (err) {
-        //     console.log(err);
-        // }
         try {
             const db = getFirestore();
             const products = db.collection('products');
@@ -36,7 +28,6 @@ const ItemList = () => {
             console.log(error);
         }
     }
-    console.log(itemList);
 
     useEffect(() => {
         setTimeout(() => {
@@ -47,11 +38,15 @@ const ItemList = () => {
     
     return (
         <div className={loading ? 'loading' : 'item-list'}>
-        { loading ? (<CircularProgress style={{ 'color': 'rgb(155, 0, 36)' }} />) : itemList?.map((product) => (
-            <Item   images={product.images} title={product.title} description={product.description} estado={product.estado}
-                    category={product.category} price={product.price} talle={product.talle} key={product.id}
-                    alto={product.alto} ancho={product.ancho} stock={product.stock} quantity={product.quantity} id={product.id}
-            />
+        { loading ? (
+            <div className='loading-logo'>
+                <h2>Bourne</h2>
+                <h3>SECOND-HAND</h3>
+                <CircularProgress style={{ 'color': 'rgb(155, 0, 36)' }} />
+            </div>) 
+            : 
+            itemList?.map((product) => (
+            <Item   images={product.images} key={product.id} id={product.id} price={product.price} brand={product.brand} />
         ))
         }
         </div>

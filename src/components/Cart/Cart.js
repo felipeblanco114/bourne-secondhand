@@ -11,9 +11,6 @@ const Cart = () => {
 
     const history = useHistory();
 
-    console.log(cart);
-    console.log(cartId);
-
     const handleLink = (link) => {
         history.push(link)
     }
@@ -85,7 +82,6 @@ const Cart = () => {
             <h1>Mi carrito</h1>
             <div>
                 { cart.length ? cart.map((cartItem) => (
-                    <>
                     <div className='cart-item-container' key={cartItem.item.id} >
                         <div className='cart-list-container'>
                             <div className='cart-list-image'>
@@ -106,7 +102,6 @@ const Cart = () => {
                             </div>
                         </div>
                     </div>
-                    </>
                 )) : 
                 <div style={{ textAlign: 'center', marginTop: '4rem' }}>
                     <h2>

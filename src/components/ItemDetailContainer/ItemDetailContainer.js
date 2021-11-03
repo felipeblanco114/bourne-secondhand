@@ -20,12 +20,19 @@ const ItemDetailContainer = () => {
         db.collection('products').doc(id).get()
             .then(resp => setItem({ id: resp.id, ...resp, ...resp.data() }))
             .then(() => setLoading(false));
-    }, []);
-    console.log(item);
+    }, [id]);
 
     return (
         <div className={loading ? 'loading' : 'item-detail-container'}>
-            { loading ? <CircularProgress style={{ 'color': 'rgb(155, 0, 36)' }} /> : <ItemDetail id={id} item={item} />}
+            { loading ? 
+                <div className='loading-logo'>
+                    <h2>Bourne</h2>
+                    <h3>SECOND-HAND</h3>
+                    <CircularProgress style={{ 'color': 'rgb(155, 0, 36)' }} />
+                </div> 
+                : 
+                <ItemDetail id={id} item={item} />
+            }
         </div>
     )
 }

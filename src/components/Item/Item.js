@@ -3,17 +3,10 @@ import './Item.css';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { Link } from 'react-router-dom';
-import { useCartContext } from '../../contexts/CartContext';
 
-const Item = ({ images, id, title, category, description, price, talle, alto, ancho, stock, estado }) => {
-
-    // const product = {id, title, price, stock, category};
-
-    const {cart} = useCartContext();
-
+const Item = ({ images, id, price, brand }) => {
 
     const [image, setImage] = useState(0);
-    console.log(cart);
 
     const handleBefore = () => {
         if(image === 0) {
@@ -34,10 +27,6 @@ const Item = ({ images, id, title, category, description, price, talle, alto, an
 
     return (
         <div className='card-item' key={id}>
-            {/* { successAlert ? <Alert id='success-alert' severity="success">Agregado al carrito.</Alert> : null } */}
-            <div className='card-header'>
-                {/* <Link to={`/products/${id}`}><h3>{title}</h3></Link> */}
-            </div>
             <div className='card-image'>
                 <Link to={`/products/${id}`}><img src={images[image]} alt='product' /></Link>
                 { images.length > 1 ? (
@@ -47,6 +36,10 @@ const Item = ({ images, id, title, category, description, price, talle, alto, an
                         <ArrowForwardIosIcon id='next' onClick={handleNext} disabled={image === (images.length - 1)} />
                     </div> ) 
                 : null }
+            </div>
+            <div className='card-footer'>
+                <h4>${price}</h4>
+                <h4>{brand.toUpperCase()}</h4>
             </div>
         </div>
     )

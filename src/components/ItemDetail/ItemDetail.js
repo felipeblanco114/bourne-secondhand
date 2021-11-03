@@ -11,8 +11,6 @@ const ItemDetail = ({ id, item }) => {
     const [image, setImage] = useState(0);
     const {cart, cartId, setCartId, addItem, addCart } = useCartContext();
 
-    console.log(item.id);
-
     const handleBefore = () => {
         if(image === 0) {
             setImage(item.images.length - 1);
@@ -111,8 +109,8 @@ const ItemDetail = ({ id, item }) => {
                                         <h3>{item.talle}</h3>
                                     </div>
                                     <div className='medidas'>
-                                        <p>LARGO: {item.alto}</p>
-                                        <p>ANCHO: {item.ancho}</p>
+                                        <p>LARGO: {item.alto} cm.</p>
+                                        <p>ANCHO: {item.ancho} cm.</p>
                                         <p>ESTADO: {item.estado}</p>
                                     </div>
                                 </div>
