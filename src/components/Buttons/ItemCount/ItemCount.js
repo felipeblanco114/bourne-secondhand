@@ -3,7 +3,7 @@ import './ItemCount.css';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import {useHistory} from 'react-router-dom';
 
-const ItemCount = ({ stock, initial, onAdd, category, cart, setCart, product, cartId, setCartId }) => {
+const ItemCount = ({ stock, initial, onAdd, product, cartId }) => {
 
     const [count, setCount] = useState(initial);
 
@@ -41,7 +41,7 @@ const ItemCount = ({ stock, initial, onAdd, category, cart, setCart, product, ca
             </div>
             ) : (
             <div className='proceed-to-purchase'>
-                <button onClick={() => handleLink('/cart')} className='btn-count btn-count-3 add-cart'>PROCEDER A LA COMPRA</button>
+                <button onClick={() => handleLink('/cart')} className='btn-count btn-count-3 add-cart'>IR AL CARRITO</button>
             </div>
             )
             }

@@ -14,7 +14,7 @@
     font-family: 'Bebas', sans-serif;
 }
 .card-item:hover {
-    transform: scale(1.02);
+    transform: scale(1.1);
 }
 .card-item:hover img {
     transition: 0.1s;
