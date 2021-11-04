@@ -7,6 +7,7 @@ import Home from './components/Home/Home.js';
 import Footer from './components/Footer/Footer';
 import Cart from './components/Cart/Cart';
 import CartContextProvider from './contexts/CartContext';
+import ItemContainerCategory from './components/ItemContainterCategory/ItemContainerCategory';
 import {
   BrowserRouter as Router,
   Switch,
@@ -26,6 +27,9 @@ const App = () => {
                     <Switch>
                         <Route exact path='/products'>
                             <ItemListContainer />
+                        </Route>
+                        <Route path='/products/category/:category'>
+                            <ItemContainerCategory />
                         </Route>
                         <Route path='/products/:id'>
                             <ItemDetailPage />

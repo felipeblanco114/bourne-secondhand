@@ -1,3 +1,5 @@
+@import url('http://fonts.cdnfonts.com/css/bebas');
+
 .item-list-container {
     width: 95%;
     padding: .5rem;
@@ -12,6 +14,22 @@
                 0 4px 4px rgba(0,0,0,0.02), 
                 0 8px 8px rgba(0,0,0,0.02),
                 0 16px 16px rgba(0,0,0,0.02);
+}
+.category-container {
+    width: 75%;
+    font-family: 'Bebas', sans-serif;
+    display: flex;
+    margin: 2.4rem auto 0.3rem auto;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.category-container h3 {
+    cursor: pointer;
+    margin: .3rem 1rem 0.3rem 1rem;
+    font-size: 1.6rem;
+}
+.category-selected {
+    border-bottom: 2px solid rgb(40,40,40);
 }
 .loading {
     width: 100%;

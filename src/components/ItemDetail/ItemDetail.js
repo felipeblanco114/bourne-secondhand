@@ -102,7 +102,11 @@ const ItemDetail = ({ id, item }) => {
                                 <h2>${item.price}</h2>
                             </div>
                             <div className='details-bottom'>
-                                <div className='talles-estado'>
+                            <div className='talles-estado'>
+                                    {item.category === 'gafas' ?
+                                    (<h2 style={{ margin: 'auto' }}>GAFAS</h2>) :
+                                    (
+                                    <>
                                     <div>
                                         <h3>{item.talle}</h3>
                                     </div>
@@ -111,6 +115,8 @@ const ItemDetail = ({ id, item }) => {
                                         <p>ANCHO: {item.ancho} cm.</p>
                                         <p>ESTADO: {item.estado}</p>
                                     </div>
+                                    </>)
+                                }
                                 </div>
                                 <div>
                                     <ItemCount initial={1} stock={item.stock} cartId={cartId} setCartId={setCartId} onAdd={onAdd} category={item.category} product={item} cart={cart} />
