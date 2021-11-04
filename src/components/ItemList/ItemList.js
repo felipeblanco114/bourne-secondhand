@@ -30,9 +30,7 @@ const ItemList = () => {
     }
 
     useEffect(() => {
-        setTimeout(() => {
-            getItems();
-        }, [0])
+        getItems();
     }, [category]);
 
     

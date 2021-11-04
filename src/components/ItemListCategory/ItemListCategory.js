@@ -29,9 +29,7 @@ const ItemListCategory = () => {
     }
 
     useEffect(() => {
-        setTimeout(() => {
-            getItems();
-        }, [0])
+        getItems();
     }, [category]);
 
     
