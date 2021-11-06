@@ -12,8 +12,10 @@ const Cart = () => {
 
     const { cart, cartId, deleteCart, deleteItem } = useCartContext();
 
-    const [finallyCheckout, setFinallyCheckout] = useState([]);
+
+    const [orderId, setOrderId] = useState('');
     const [showCheckout, setShowCheckout] = useState(false);
+    const [checkoutLevel, setCheckoutLevel] = useState(1);
 
     const [buyer, setBuyer] = useState({
         name: '', 
@@ -31,26 +33,34 @@ const Cart = () => {
         let order = {};
 
         order.date  = firebase.firestore.Timestamp.fromDate(new Date());
-        order.buyer = { name: 'jose', email: 'jose@gmail.com', phone: '123123' };
-        order.total = totalPxQ();
+        order.buyer = buyer;
+        order.total = total;
         order.items = cart.map((cartItem) => {
             const id = cartItem.item.id;
             const title = cartItem.item.title;
-            const price = cartItem.item.price * cartItem.quantity;
+            const price = cartItem.item.price * cartItem.cantidad;
 
             return { id, title, price };
         })
         const db = getFirestore();
         const ordersCollection = db.collection('orders') // creo nueva colección
         ordersCollection.add(order)
-            .then(({ IdDocumento }) => {
-                setTimeout(alert(`Su orden ${IdDocumento.id} se está siendo procesando.`), 3000)
+            .then((idDocumento) => {
+                console.log(idDocumento);
+                setOrderId(idDocumento.id);
+                alert(`Su orden ${idDocumento.id} se está siendo procesada.`);
             })
             .catch((err) => {
                 console.log(err);
             })
             .finally(()=>{
-                alert('Su compra ha finalizado de manera exitosa')
+                setCheckoutLevel(2);
+                alert('Su compra ha finalizado de manera exitosa');
+                setBuyer({
+                    name:'',
+                    phone:'',
+                    email: ''
+                });
             });
 
             deleteCart();
@@ -96,37 +106,39 @@ const Cart = () => {
 
     total = cart.map((item=> (totalPxQ(item.cantidad,item.item.price))));
 
-    const handleChange = (event) => {
-        event.preventDefault();
+    const handleChange = (e) => {
+        e.preventDefault();
         setBuyer(
             {
             ...buyer,
-            [event.target.name]: event.target.value
+            [e.target.name]: e.target.value
         })
     }
 
     const CheckoutModal = () => {
         return (
             <div className='modal'>
-                <div className='modal-container'>
+                { checkoutLevel === 1 ? <div className='modal-container'>
                     <CloseIcon onClick={() => setShowCheckout(false)} />
                     <h2>Datos del comprador</h2>
-                    <form onSubmit={generateOrder} onChange={handleChange}>
+                    <form onSubmit={generateOrder} onChange={handleChange} >
                         <div>
-                            <h3>Nombre</h3>
-                            <input type="text" placeholder="Nombre" name="name" value={buyer.name}/>
+                            <input type='text' name='name' placeholder='name' value={buyer.name}/>
                         </div>
                         <div>
-                            <h3>Email</h3>
-                            <input type="text" placeholder="email" name="email" value={buyer.email} />
+                            <input type='text' name='phone'placeholder='tel' value={buyer.phone}/>
                         </div>
                         <div>
-                            <h3>Phone</h3>
-                            <input type="text" placeholder="phone" name="phone" value={buyer.phone} />
+                            <input type='email' name='email'placeholder='email' value={buyer.email}/>
                         </div>
-                        <button onClick={() => generateOrder()} >Comprar </button>
-                    </form>
-                </div>
+                <button>Enviar</button>
+            </form>
+
+                </div> : (
+                <div className='modal-container'>
+                    <CloseIcon onClick={() => setShowCheckout(false)} />
+                    <h2>La compra se ha realizado correctamente, su orden de compra es {orderId}</h2>
+                </div>)}
             </div>
         )
     }
