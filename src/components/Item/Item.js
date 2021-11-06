@@ -39,7 +39,7 @@ const Item = ({ images, id, price, brand }) => {
             </div>
             <div className='card-footer'>
                 <h4>${price}</h4>
-                <h4>{brand.toUpperCase()}</h4>
+                <h4>{brand}</h4>
             </div>
         </div>
     )

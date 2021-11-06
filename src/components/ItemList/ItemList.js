@@ -33,6 +33,7 @@ const ItemList = () => {
         getItems();
     }, [category]);
 
+
     
     return (
         <div className={loading ? 'loading' : 'item-list'}>

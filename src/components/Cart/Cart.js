@@ -1,18 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {useCartContext} from '../../contexts/CartContext';
 import './Cart.css'
 import {useHistory} from 'react-router-dom';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Swal from 'sweetalert2';
+import { getFirestore } from '../../services/getProducts';
+import firebase from 'firebase';
+import CloseIcon from '@material-ui/icons/Close';
 
 const Cart = () => {
 
     const { cart, cartId, deleteCart, deleteItem } = useCartContext();
 
+    const [finallyCheckout, setFinallyCheckout] = useState([]);
+    const [showCheckout, setShowCheckout] = useState(false);
+
+    const [buyer, setBuyer] = useState({
+        name: '', 
+        email: '', 
+        phone: ''
+    });
+
     const history = useHistory();
 
     const handleLink = (link) => {
         history.push(link)
+    }
+
+    const generateOrder = () => {
+        let order = {};
+
+        order.date  = firebase.firestore.Timestamp.fromDate(new Date());
+        order.buyer = { name: 'jose', email: 'jose@gmail.com', phone: '123123' };
+        order.total = totalPxQ();
+        order.items = cart.map((cartItem) => {
+            const id = cartItem.item.id;
+            const title = cartItem.item.title;
+            const price = cartItem.item.price * cartItem.quantity;
+
+            return { id, title, price };
+        })
+        const db = getFirestore();
+        const ordersCollection = db.collection('orders') // creo nueva colección
+        ordersCollection.add(order)
+            .then(({ IdDocumento }) => {
+                setTimeout(alert(`Su orden ${IdDocumento.id} se está siendo procesando.`), 3000)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(()=>{
+                alert('Su compra ha finalizado de manera exitosa')
+            });
+
+            deleteCart();
     }
 
     const removeToCart = (product, id) => {
@@ -27,8 +68,6 @@ const Cart = () => {
                 title: `Has eliminado ${product.item.title} del carro`,
                 showConfirmButton: false,
                 timer: 2000,
-                backdrop: `rgba(0,0,123,0.0)`,
-                height: '4rem',
               });
         }
     }
@@ -41,9 +80,7 @@ const Cart = () => {
             title: 'Has eliminado todos los elementos del carro.',
             showConfirmButton: false,
             timer: 1500,
-            backdrop: `rgba(0,0,123,0.0)`,
-            height: '4rem',
-          });
+        });
     }
 
     const pxq = (a,b) => {
@@ -51,13 +88,49 @@ const Cart = () => {
       }
       let total = 0;
     
-      const totalPxQ = (a, b) => {
+    const totalPxQ = (a, b) => {
         let sum = a*b;
         total = total + sum;
         return total
-      }
+    }
+
+    total = cart.map((item=> (totalPxQ(item.cantidad,item.item.price))));
+
+    const handleChange = (event) => {
+        event.preventDefault();
+        setBuyer(
+            {
+            ...buyer,
+            [event.target.name]: event.target.value
+        })
+    }
+
+    const CheckoutModal = () => {
+        return (
+            <div className='modal'>
+                <div className='modal-container'>
+                    <CloseIcon onClick={() => setShowCheckout(false)} />
+                    <h2>Datos del comprador</h2>
+                    <form onSubmit={generateOrder} onChange={handleChange}>
+                        <div>
+                            <h3>Nombre</h3>
+                            <input type="text" placeholder="Nombre" name="name" value={buyer.name}/>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <input type="text" placeholder="email" name="email" value={buyer.email} />
+                        </div>
+                        <div>
+                            <h3>Phone</h3>
+                            <input type="text" placeholder="phone" name="phone" value={buyer.phone} />
+                        </div>
+                        <button onClick={() => generateOrder()} >Comprar </button>
+                    </form>
+                </div>
+            </div>
+        )
+    }
       
-      total = cart.map((item=> (totalPxQ(item.cantidad,item.item.price))));
 
     const checkout = () => {
         Swal.fire({
@@ -116,13 +189,14 @@ const Cart = () => {
             <div className='cart-footer'>
                 <h2>TOTAL: ${total[total.length-1]}</h2>
                 <div>
-                    <button onClick={() => checkout()}>COMPRAR</button>
+                    <button onClick={() => setShowCheckout(true)}>IR A CHECKOUT</button>
                     <DeleteIcon style={{ cursor: 'pointer'}} className='delete' onClick={() => removeAll()}></DeleteIcon>
                 </div>
             </div> 
                 : 
                 null
             }
+            { showCheckout ? <CheckoutModal /> : null }
         </div>
     )
 }

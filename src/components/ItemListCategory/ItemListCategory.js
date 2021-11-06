@@ -30,7 +30,7 @@ const ItemListCategory = () => {
 
     useEffect(() => {
         getItems();
-    }, [category]);
+    }, []);
 
     
     return (

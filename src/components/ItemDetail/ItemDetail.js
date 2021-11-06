@@ -49,8 +49,6 @@ const ItemDetail = ({ id, item }) => {
                     title: `Has agregado ${qty} ${item.title}`,
                     showConfirmButton: false,
                     timer: 1500,
-                    backdrop: `rgba(0,0,123,0.0)`,
-                    height: '4rem',
                   });
                 addCart(qty);
                 isInCart.cantidad = isInCart.cantidad+qty;
@@ -62,8 +60,6 @@ const ItemDetail = ({ id, item }) => {
                     title: `Has agregado ${qty} ${item.title}`,
                     showConfirmButton: false,
                     timer: 1500,
-                    backdrop: `rgba(0,0,123,0.0)`,
-                    height: '4rem',
                   });
                 addCart(qty);
                 addItem({ item: item, cantidad: qty });
