@@ -8,6 +8,8 @@ import Footer from './components/Footer/Footer';
 import Cart from './components/Cart/Cart';
 import CartContextProvider from './contexts/CartContext';
 import ItemContainerCategory from './components/ItemContainterCategory/ItemContainerCategory';
+import Order from './components/Order/Order';
+import FinalOrder from './components/FinalOrder/FinalOrder';
 import {
   BrowserRouter as Router,
   Switch,
@@ -41,6 +43,13 @@ const App = () => {
 
                         <Route exact path='/cart'>
                             <Cart />
+                        </Route>
+
+                        <Route exact path='/order'>
+                            <Order />
+                        </Route>
+                        <Route path='/order/:orderId'>
+                            <FinalOrder />
                         </Route>
                     </Switch>
 
