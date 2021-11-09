@@ -1,5 +1,6 @@
 @import url('http://fonts.cdnfonts.com/css/bebas');
 @import url('http://fonts.cdnfonts.com/css/bpg-arial');
+
 .item-count-container {
     width: 100%;
     height: 6rem;
@@ -29,12 +30,11 @@
 }
 .add-cart {
     margin-top: -.2rem;
+    font-family: 'Bebas', sans-serif;
+    font-size: 1.2rem;
 }
 .btn-count-1,.btn-count-2 {
     color: rgb(155, 0, 36,1);
-}
-.btn-count-1:hover,.btn-count-2:hover {
-
 }
 .btn-count-3 {
     background: rgb(155, 0, 36,1);

@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {useCartContext} from '../../contexts/CartContext';
 import './Cart.css'
 import {useHistory} from 'react-router-dom';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Swal from 'sweetalert2';
-import { getFirestore } from '../../services/getProducts';
-import firebase from 'firebase';
-import CloseIcon from '@material-ui/icons/Close';
+
 
 const Cart = () => {
 

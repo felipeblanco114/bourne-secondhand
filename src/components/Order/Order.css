@@ -1,0 +1,69 @@
+@import url('http://fonts.cdnfonts.com/css/bebas-kai');
+@import url('http://fonts.cdnfonts.com/css/bpg-arial');
+
+.order-container {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2.4rem;
+    font-family: 'Bebas Kai', sans-serif;
+    margin-bottom: 2.4rem;
+    background-color: rgba(255,255,255,0.6);
+    padding-bottom: .4rem;
+}
+.margin-b {
+    margin-bottom: 10rem;
+}
+.order-container h2 {
+    font-size: 2.8rem;
+    margin: 1rem 0 .4rem 0;
+    text-align: center;
+}
+.img-form {
+    width: 100%;
+    height: 5rem;
+}
+.img-form img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.order-container form div h3 {
+    font-size: 2rem;
+    padding: .3rem;
+}
+.order-container form {
+    width: 90%;
+    margin: 0 auto 2.4rem auto;
+}
+.order-container form div input {
+    width: 40%;
+    height: 1.8rem;
+    font-size: 1.2rem;
+    font-family: 'BPG Arial', sans-serif;
+    border: none;
+    background-color: rgb(255,255,255, 0.4);
+    padding: 12px 6px;
+}
+
+.order-container form div input:focus {
+    background-color: rgba(255,255,255,0.97);
+    outline: none;
+}
+.order-container button {
+    cursor: pointer;
+    font-family: 'Bebas Kai', sans-serif;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    border: none;
+    background-color: rgb(155, 0, 36);
+    color: rgb(255,255,255);
+    margin: .4rem auto .4rem auto;
+    align-content: center;
+    width: 8rem;
+    transition: 0.2s;
+}
+.order-container button[disabled] {
+    background-color: rgb(155, 0, 36,0.6);
+    transition: 0.2s;
+}

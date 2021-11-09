@@ -35,7 +35,8 @@ const FinalOrder = () => {
                         <div key={item.id}>
                             <img src={item.image} alt={item.title} style={{ maxWidth: '6rem'}}/>
                             <h4>{item.title}</h4>
-                            <h4>Total por cantidad: ${item.price}</h4>
+                            <h4>Precio unitario: ${item.price / item.quantity}</h4>
+                            <h4>TOTAL: ${item.price}</h4>
                         </div>
                     ))}
                 </div>

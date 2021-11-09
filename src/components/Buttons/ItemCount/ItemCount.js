@@ -18,7 +18,7 @@ const ItemCount = ({ stock, initial, onAdd, product, cartId }) => {
     const handleDiscount = () => {
         count !== 1 ?
         setCount(count - 1) :
-        alert('La cantidad es la mínima.')
+        alert('La cantidad es la mínima.');
     }
 
     const handleLink = (link) => {
@@ -37,11 +37,13 @@ const ItemCount = ({ stock, initial, onAdd, product, cartId }) => {
                 </div>
                 <div>
                     <button className='btn-count btn-count-3 add-cart' onClick={() => onAdd(count, product)}><AddShoppingCartIcon /></button>
+                    <button className='btn-count add-cart btn-count-1' onClick={() => handleLink('/products')}>SEGUIR COMPRANDO</button>
                 </div>
             </div>
             ) : (
             <div className='proceed-to-purchase'>
                 <button onClick={() => handleLink('/cart')} className='btn-count btn-count-3 add-cart'>IR AL CARRITO</button>
+                <button className='btn-count add-cart btn-count-1' onClick={() => handleLink('/products')}>SEGUIR COMPRANDO</button>
             </div>
             )
             }
