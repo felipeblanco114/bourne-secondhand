@@ -18,6 +18,14 @@
     background-color: rgb(254,254,254, 0.8);
     padding: 1rem;
 }
+.seguir-comprando {
+  position: relative;
+  bottom: 3.8rem;
+  font-size: 1.2rem;
+  color: rgb(155, 0, 36);
+  user-select: none;
+  cursor: pointer;
+}
 .cart-container h1 {
   font-size: 2.6rem;
   text-align: center;
@@ -132,4 +140,33 @@
     width: 70%;
     background: rgb(250,250,250);
     z-index: 6;
+  }
+
+  @media screen and (max-width: 700px) {
+    .cart-container {
+      width: 90%;
+    }
+    .cart-container h1 {
+      margin-top: 2.5rem;
+    }
+    .seguir-comprando {
+      bottom: 6rem;
+    }
+    .cart-footer {
+      margin-left: auto;
+      margin-right: auto;
+      justify-content: space-between;
+      padding: .1rem;
+      display: flex;
+      align-items: center;
+      width: 90%;
+      flex-direction: column;
+      font-size: 2rem;
+      margin-top: auto;
+      background-color: rgb(255,255,255,0.3);
+      border: rgb(40,40,40,.08) solid 1px;
+    }
+    .cart-item-details h3 {
+      font-size: 1rem;
+    }
   }

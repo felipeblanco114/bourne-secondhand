@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { getFirestore } from '../../services/getProducts';
 import {useHistory, useParams} from 'react-router-dom';
+import './FinalOrder.css';
 
 const FinalOrder = () => {
 
@@ -20,31 +21,33 @@ const FinalOrder = () => {
     return (
         <>
             { loading ? <div>cargando</div> : 
-            <div>
+            <div className='orderId-container'>
+                <h1>¡Gracias por su compra!</h1>
                 <h2>Detalles de la compra</h2>
-                <div>
-                    <h3>Detalles del comprador</h3>
-                    <h4>Nombre: {order.buyer.name}</h4>
-                    <h4>Teléfono: {order.buyer.phone}</h4>
-                    <h4>Email: {order.buyer.email}</h4>
-                    
+                <div className='orderId-details'>
+                    <div className='orderId-buyer'>
+                        <h3>Detalles del comprador</h3>
+                        <h4>Nombre: {order.buyer.name}</h4>
+                        <h4>Teléfono: {order.buyer.phone}</h4>
+                        <h4>Email: {order.buyer.email}</h4>
+                    </div>
+                    <div>
+                        <h3>Productos</h3>
+                        {order.items.map((item) => (
+                            <div key={item.id}>
+                                <img src={item.image} alt={item.title} style={{ maxWidth: '6rem'}}/>
+                                <h4>{item.title}</h4>
+                                <h4>Precio unitario: ${item.price / item.quantity}</h4>
+                                <h4>TOTAL: ${item.price}</h4>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-                <div>
-                    <h3>Productos</h3>
-                    {order.items.map((item) => (
-                        <div key={item.id}>
-                            <img src={item.image} alt={item.title} style={{ maxWidth: '6rem'}}/>
-                            <h4>{item.title}</h4>
-                            <h4>Precio unitario: ${item.price / item.quantity}</h4>
-                            <h4>TOTAL: ${item.price}</h4>
-                        </div>
-                    ))}
+                <div className='orderId-total'>
+                    <h3>TOTAL: ${order.total[order.total.length-1]}</h3>
                 </div>
-                <div>
-                    <h3>TOTAL: {order.total[order.total.length-1]}</h3>
-                </div>
-                <button onClick={() => history.push('/products')}>Volver a productos</button>
-            </div> 
+                <button onClick={() => history.push('/products')}>Volver a productos</button> 
+            </div>
             }
         </>
     )

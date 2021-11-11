@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {useCartContext} from '../../contexts/CartContext';
 import {useHistory} from 'react-router-dom';
 import { getFirestore } from '../../services/getProducts';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import './Order.css';
 import headerPhoto from '../../assets/img/bourne-style.jpg';
 import Swal from 'sweetalert2';

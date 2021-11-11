@@ -60,6 +60,7 @@ const Cart = () => {
     return (
         <div className='cart-container'>
             <h1>Mi carrito</h1>
+            <h2 className='seguir-comprando' onClick={() => handleLink('/products')}>Seguir comprando</h2>
             <div>
                 { cart.length ? cart.map((cartItem) => (
                     <div className='cart-item-container' key={cartItem.item.id} >
