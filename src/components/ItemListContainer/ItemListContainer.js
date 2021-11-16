@@ -2,24 +2,58 @@ import React from 'react';
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css';
 import {useHistory} from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Fade from '@material-ui/core/Fade';
 
 const ItemListContainer = ({ cartId, setCartId }) => {
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
     const history = useHistory();
 
     const handleLinkCategory = (link) => {
         history.push(link);
+        handleClose();
     }
 
     return (
         <>
         <div className='category-container'>
-            <h3 onClick={() => handleLinkCategory('/products/')}>TODO</h3>
-            <h3 onClick={() => handleLinkCategory('/products/category/remeras')}>REMERAS</h3>
-            <h3 onClick={() => handleLinkCategory('/products/category/camisas')}>CAMISAS</h3>
-            <h3 onClick={() => handleLinkCategory('/products/category/gafas')}>GAFAS</h3>
-            <h3 onClick={() => handleLinkCategory('/products/category/sweaters')}>SWEATERS</h3>
-            <h3 onClick={() => handleLinkCategory('/products/category/pantalones')}>PANTALONES</h3>
+            <Button
+                id="fade-button"
+                aria-controls="fade-menu"
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
+            >
+                <h2>CATEGORÍAS</h2>
+            </Button>
+            <Menu
+                id="fade-menu"
+                MenuListProps={{
+                'aria-labelledby': 'fade-button',
+                }}
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                TransitionComponent={Fade}
+            >
+                <MenuItem onClick={() => handleLinkCategory('/products')}>TODO</MenuItem>
+                <MenuItem onClick={() => handleLinkCategory('/products/category/remeras')}>REMERAS</MenuItem>
+                <MenuItem onClick={() => handleLinkCategory('/products/category/sweaters')}>SWEATERS</MenuItem>
+                <MenuItem onClick={() => handleLinkCategory('/products/category/camisas')}>CAMISAS</MenuItem>
+                <MenuItem onClick={() => handleLinkCategory('/products/category/gafas')}>GAFAS</MenuItem>
+                <MenuItem onClick={() => handleLinkCategory('/products/category/pantalones')}>PANTALONES</MenuItem>
+            </Menu>
         </div>
         <div className='item-list-container'>
             <ItemList cartId={cartId} setCartId={setCartId} />

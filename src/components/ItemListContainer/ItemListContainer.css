@@ -1,4 +1,4 @@
-@import url('http://fonts.cdnfonts.com/css/bebas');
+@import url('http://fonts.cdnfonts.com/css/bebas-kai');
 
 .item-list-container {
     width: 95%;
@@ -7,7 +7,7 @@
     margin-right: auto;
     display: flex;
     background-color: rgba(230,230,230, 0.3);
-    margin-top: 2.4rem;
+    margin-top: .6rem;
     margin-bottom: 2.4rem;
     box-shadow: 0 1px 1px rgba(0,0,0,0.02), 
                 0 2px 2px rgba(0,0,0,0.02), 
@@ -16,12 +16,12 @@
                 0 16px 16px rgba(0,0,0,0.02);
 }
 .category-container {
-    width: 75%;
-    font-family: 'Bebas', sans-serif;
-    display: flex;
-    margin: 2.4rem auto 0.3rem auto;
+    margin: .6rem 2.4rem 0rem 2.4rem;
+}
+.category-container h2 {
+    font-family: 'Bebas Kai', sans-serif;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+    font-size: 2rem;
 }
 .category-container h3 {
     cursor: pointer;

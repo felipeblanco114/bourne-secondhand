@@ -1,0 +1,124 @@
+@import url('http://fonts.cdnfonts.com/css/bebas-kai');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&display=swap');
+
+.contact-container {
+    margin-top: 4.6rem;
+    position: relative;
+}
+.contact-container h2 {
+    font-family: 'Bebas Kai', sans-serif;
+    width: 100%;
+    text-align: center;
+    font-size: 2.5rem;
+    color: rgb(51, 51, 51);
+    letter-spacing: 1px;
+    user-select: none;
+}
+.contact-form {
+    width: 65%;
+    height: 100%;
+    background-color: rgb(245, 245, 245);
+    font-family: 'Bebas Kai', sans-serif;
+    color: rgb(53, 53, 53);
+    transition: 0.4s;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.02), 
+                0 2px 2px rgba(0,0,0,0.02), 
+                0 4px 4px rgba(0,0,0,0.02), 
+                0 8px 8px rgba(0,0,0,0.02),
+                0 16px 16px rgba(0,0,0,0.02);
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+}
+.contact-form div {
+    width: 50%;
+}
+.contact-left img {
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+.contact-right {
+    padding: 25px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+}
+.contact-right h3 {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 1.4rem;
+}
+.contact-right h3:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 50px;
+    border-radius: 2px;
+    background-color: rgb(155, 0, 36);
+}
+.field {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    outline: none;
+    background-color: rgb(250,250,250,0.8);
+    border: 2px solid rgb(53,53,53,0);
+    border-bottom: 2px solid rgb(155, 0, 36);
+    font-size: 1.1rem;
+    margin-bottom: 22px;
+    transition: .2s;
+    font-family: 'Poppins', sans-serif;
+}
+.field:hover {
+    background-color: rgb(171,171,171,0.1);
+}
+.field:focus {
+    background-color: rgb(255,255,255);
+    border:rgb(155, 0, 36) 2px solid;
+}
+.area {
+    min-height: 14rem;
+}
+.contact-btn {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: rgb(155, 0, 36);
+    font-family: 'Bebas Kai', sans-serif;
+    color: rgb(250,250,250);
+    transition: 0.2s;
+}
+
+@media screen and (max-width: 600px) {
+    .contact-container {
+        margin-top: 1rem;
+    }
+    .contact-form {
+        flex-direction: column;
+        width: 98%;
+    }
+    .contact-form div {
+        width: 100%;
+    }
+    .contact-right {
+        padding: 5px 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-box {
+        grid-template-columns: 1fr;
+    }
+    .contact-left {
+        height: 200px;
+    }
+}

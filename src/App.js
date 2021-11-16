@@ -10,6 +10,7 @@ import CartContextProvider from './contexts/CartContext';
 import ItemContainerCategory from './components/ItemContainterCategory/ItemContainerCategory';
 import Order from './components/Order/Order';
 import FinalOrder from './components/FinalOrder/FinalOrder';
+import Contact from './components/Contact/Contact';
 import {
   BrowserRouter as Router,
   Switch,
@@ -50,6 +51,9 @@ const App = () => {
                         </Route>
                         <Route path='/order/:orderId'>
                             <FinalOrder />
+                        </Route>
+                        <Route path='/contact' >
+                            <Contact />
                         </Route>
                     </Switch>
 

@@ -1,5 +1,5 @@
 @import url('http://fonts.cdnfonts.com/css/bebas-kai');
-@import url('http://fonts.cdnfonts.com/css/bpg-arial');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&display=swap');
 
 .order-container {
     width: 60%;
@@ -40,8 +40,11 @@
     width: 40%;
     height: 1.8rem;
     font-size: 1.2rem;
-    font-family: 'BPG Arial', sans-serif;
-    border: none;
+    font-family: 'Poppins', sans-serif;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid rgb(155, 0, 36);
     background-color: rgb(255,255,255, 0.4);
     padding: 12px 6px;
 }
