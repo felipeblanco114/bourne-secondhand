@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { getFirestore } from '../../services/getProducts';
 import {useHistory, useParams} from 'react-router-dom';
+import CircularProgress from '@material-ui/core/CircularProgress'
 import './FinalOrder.css';
 
 const FinalOrder = () => {
@@ -20,7 +21,15 @@ const FinalOrder = () => {
     }, [orderId]);
     return (
         <>
-            { loading ? <div>cargando</div> : 
+            { loading ? 
+            <div className='orderId-container'>
+                <div className='loading-logo'>
+                    <h2>Bourne</h2>
+                    <h3>SECOND-HAND</h3>
+                    <CircularProgress style={{ 'color': 'rgb(155, 0, 36)' }} />
+                </div>
+            </div> 
+            : 
             <div className='orderId-container'>
                 <h1>¡Gracias por su compra!</h1>
                 <h2>Detalles de la compra</h2>

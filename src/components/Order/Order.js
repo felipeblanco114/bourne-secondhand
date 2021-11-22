@@ -14,7 +14,8 @@ const Order = () => {
     const [buyer, setBuyer] = useState({
         name: '', 
         email: '', 
-        phone: ''
+        phone: '',
+        email2: ''
     });
 
     const handleLink = (link) => {
@@ -121,8 +122,24 @@ const Order = () => {
                     <div>
                         <h3>Email</h3>
                         <input type='email' onChange={handleChange}  name='email' placeholder='Email' value={buyer.email}/>
+                        {(buyer.email.includes('@') && buyer.email.includes('.com') && buyer.email.length > 6) || buyer.email.length === 0 ? 
+                            null : 
+                            <>
+                                <br/>
+                                <span className='red-color'>EMAIL INCORRECTO</span>
+                            </> 
+                        }
+                        <h3>Confirmar email</h3>
+                        <input type='email' onChange={handleChange}  name='email2' placeholder='Confirmar Email' value={buyer.email2}/>
                     </div>
+                    { buyer.email === buyer.email2 ?
                     <button disabled={buyer.name === '' || buyer.email === '' || buyer.phone === ''}>Comprar</button>
+                    : 
+                    <>
+                    <span className='red-color'> LOS EMAILS SON DISTINTOS </span><br/>
+                    <button disabled={true}>Comprar</button>
+                    </>
+                    }
                 </form>
             </div>
             )
