@@ -11,6 +11,7 @@ import ItemContainerCategory from './components/ItemContainterCategory/ItemConta
 import Order from './components/Order/Order';
 import FinalOrder from './components/FinalOrder/FinalOrder';
 import Contact from './components/Contact/Contact';
+import ItemContainerBrand from './components/ItemContainerBrand/ItemContainerBrand';
 import {
   BrowserRouter as Router,
   Switch,
@@ -33,6 +34,9 @@ const App = () => {
                         </Route>
                         <Route path='/products/category/:category'>
                             <ItemContainerCategory />
+                        </Route>
+                        <Route path='/products/brand/:brand'>
+                            <ItemContainerBrand />
                         </Route>
                         <Route path='/products/:id'>
                             <ItemDetailPage />

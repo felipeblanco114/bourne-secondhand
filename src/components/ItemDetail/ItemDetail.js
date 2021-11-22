@@ -5,11 +5,14 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { useCartContext } from '../../contexts/CartContext';
 import Swal from 'sweetalert2';
+import {useHistory} from 'react-router-dom';
 
 const ItemDetail = ({ id, item }) => {
 
     const [image, setImage] = useState(0);
     const {cart, cartId, setCartId, addItem, addCart } = useCartContext();
+
+    const history = useHistory();
 
     const handleBefore = () => {
         if(image === 0) {
@@ -17,6 +20,10 @@ const ItemDetail = ({ id, item }) => {
         } else {
             setImage(image - 1);
         }
+    }
+    
+    const handleLink = (link) => {
+        history.push(link);
     }
 
     const handleNext = () => {
@@ -89,7 +96,7 @@ const ItemDetail = ({ id, item }) => {
                                 <p>{item.brand.toUpperCase()}</p>
                             </div>
                             {item.brand_image ? <div className='img-brand'>
-                                <img src={item.brand_image} alt='item.brand' />
+                                <img src={item.brand_image} alt='item.brand' onClick={() => handleLink(`brand/${item.brand_url}`)} />
                             </div>: <div></div>}
                         </div>
                         <div className='details-descriptions'>

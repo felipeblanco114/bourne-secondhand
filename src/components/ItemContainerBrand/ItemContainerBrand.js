@@ -1,12 +1,12 @@
 import React from 'react';
-import ItemListCategory from '../ItemListCategory/ItemListCategory';
+import ItemListBrand from '../ItemListBrand/ItemListBrand';
 import {useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Fade from '@material-ui/core/Fade';
 
-const ItemContainerCategory = ({ cartId, setCartId }) => {
+const ItemContainerBrand = ({ cartId, setCartId }) => {
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -55,10 +55,10 @@ const ItemContainerCategory = ({ cartId, setCartId }) => {
             </Menu>
         </div>
         <div className='item-list-container'>
-            <ItemListCategory cartId={cartId} setCartId={setCartId} />
+            <ItemListBrand cartId={cartId} setCartId={setCartId} />
         </div>
         </>
     )
 }
 
-export default ItemContainerCategory;
+export default ItemContainerBrand;

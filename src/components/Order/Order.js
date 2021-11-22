@@ -49,7 +49,7 @@ const Order = () => {
                     icon: 'question',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
+                    cancelButtonColor: '#9B0024',
                     confirmButtonText: 'Confirmar'
                   }).then((result) => {
                     if (result.isConfirmed) {
