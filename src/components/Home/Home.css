@@ -116,4 +116,7 @@
         margin: .1rem;
         transition: 0.2s;
     }
+    .home-container .logo h1 {
+        font-size: 2.4rem;
+    }
 }
