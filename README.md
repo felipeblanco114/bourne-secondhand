@@ -10,10 +10,15 @@ Realiza todo el requerimiento obligatorio.
 Utiliza algunas librerías externas.
 
 Librerías externas.
+
 [Material-UI] - Para algunos Componentes e íconos.
+
 [SweetAlert] - Para alertas estilizadas.
+
 [Firebase] - Libreria de servicios que ahorra trabajo en el back-end.
-[react-router-dom] - Para que la página funcione como Single Page Application
+
+[react-router-dom] - Para que la página funcione como Single Page Application.
+
 
 Instalación
 
