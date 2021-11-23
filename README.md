@@ -4,6 +4,7 @@ https://bourne-secondhand.netlify.app/
 
 
 Algunas características del Proyecto.
+
 Está desarrollado con create-react-app
 Realiza todo el requerimiento obligatorio.
 Utiliza algunas librerías externas.
