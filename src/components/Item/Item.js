@@ -4,7 +4,9 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { Link } from 'react-router-dom';
 
-const Item = ({ images, id, price, brand }) => {
+const Item = ({ images, id, price, brand, stock }) => {
+
+    console.log(stock);
 
     const [image, setImage] = useState(0);
 
@@ -28,7 +30,7 @@ const Item = ({ images, id, price, brand }) => {
     return (
         <div className='card-item' key={id}>
             <div className='card-image'>
-                <Link to={`/products/${id}`}><img src={images[image]} alt='product' /></Link>
+                <Link to={`/products/${id}`}><img className={!stock ? 'no-stock' : '' } src={images[image]} alt='product' /></Link>
                 { images.length > 1 ? (
                     <div className='arrows'>
                         <ArrowBackIosIcon id='retroceder' onClick={handleBefore} disabled={image === 0} />
@@ -37,6 +39,7 @@ const Item = ({ images, id, price, brand }) => {
                     </div> ) 
                 : null }
             </div>
+            {stock === 0 ? <Link to={`/products/${id}`}><h4 className='no-stock-text'>SIN STOCK</h4></Link> : null}
             <div className='card-footer'>
                 <h4>${price}</h4>
                 <h4>{brand}</h4>

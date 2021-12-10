@@ -48,6 +48,9 @@
 .card-item:hover .arrows {
     display: flex;
 }
+.no-stock {
+    filter: grayscale(100%);
+}
 .arrows {
     width: 100%;
     display: none;
@@ -55,6 +58,15 @@
     justify-content: space-between;
     position: relative;
     top: -12rem;
+}
+.no-stock-text {
+    position: relative;
+    background: none;
+    bottom: 12rem;
+    height: 0rem;
+    color:rgb(155, 0, 36);
+    font-size: 2rem;
+    user-select: none;
 }
 .arrows div {
     width: 100%;

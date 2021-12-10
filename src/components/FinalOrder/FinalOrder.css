@@ -39,10 +39,11 @@
 .orderId-total {
     font-size: 2rem;
     margin-bottom: 1rem;
+    border: 1px solid rgb(40,40,40,0.2);
+    display: flex;
+    justify-content:center;
 }
-.orderId-total h3 {
-    text-decoration: underline;
-}
+
 .product-order-container {
     display: flex;
     justify-content: center;

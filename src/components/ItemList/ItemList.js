@@ -45,7 +45,7 @@ const ItemList = () => {
             </div>) 
             : 
             itemList?.map((product) => (
-            <Item   images={product.images} key={product.id} id={product.id} price={product.price} brand={product.brand} />
+            <Item   images={product.images} key={product.id} id={product.id} price={product.price} brand={product.brand} stock={product.stock} />
         ))
         }
         </div>

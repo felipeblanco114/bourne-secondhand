@@ -51,7 +51,7 @@ const ItemListContainer = ({ cartId, setCartId }) => {
                 <MenuItem onClick={() => handleLinkCategory('/products/category/remeras')}>REMERAS</MenuItem>
                 <MenuItem onClick={() => handleLinkCategory('/products/category/sweaters')}>SWEATERS</MenuItem>
                 <MenuItem onClick={() => handleLinkCategory('/products/category/camisas')}>CAMISAS</MenuItem>
-                <MenuItem onClick={() => handleLinkCategory('/products/category/gafas')}>GAFAS</MenuItem>
+                <MenuItem onClick={() => handleLinkCategory('/products/category/accesorios')}>ACCESORIOS</MenuItem>
                 <MenuItem onClick={() => handleLinkCategory('/products/category/pantalones')}>PANTALONES</MenuItem>
             </Menu>
         </div>
