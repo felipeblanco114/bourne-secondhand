@@ -6,10 +6,18 @@ import firebase from 'firebase/app';
 import './Order.css';
 import headerPhoto from '../../assets/img/bourne-style.jpg';
 import Swal from 'sweetalert2';
+import { init, send } from 'emailjs-com';
+init("user_9LZTscsphLtdXTZKgIUE1");
 
 const Order = () => {
 
     const { cart, deleteCart } = useCartContext();
+
+    const [ toSend, setToSend ] = useState({
+        from_name: '',
+        message: '',
+        reply_to: '',
+    });
 
     const [buyer, setBuyer] = useState({
         name: '', 
@@ -59,6 +67,23 @@ const Order = () => {
                         `Tu orden de compra es ${idDocumento.id}`,
                         'success',
                       )
+                      send(
+                        'service_shk752n',
+                        'template_8g8tire',
+                        toSend,
+                        'user_9LZTscsphLtdXTZKgIUE1'
+                      )
+                        .then((response) => {
+                          console.log('SUCCESS!', response.status, response.text);
+                          setToSend({
+                            name:'',
+                            phone:'',
+                            email: ''
+                        });
+                        })
+                        .catch((err) => {
+                          console.log('FAILED...', err);
+                        });
                       setBuyer({
                         name:'',
                         phone:'',
@@ -90,7 +115,12 @@ const Order = () => {
             {
             ...buyer,
             [e.target.name]: e.target.value
-        })
+        });
+        setToSend(
+            {
+            ...buyer,
+            [e.target.name]: e.target.value
+        });
     }
     return (
         <>
