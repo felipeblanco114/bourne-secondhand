@@ -37,13 +37,13 @@ const FinalOrder = () => {
                 <div className='orderId-details'>
                     <div className='orderId-buyer'>
                         <h2>Detalles del comprador</h2>
-                        <h4>Nombre: {order.buyer.name}</h4>
-                        <h4>Teléfono: {order.buyer.phone}</h4>
-                        <h4>Email: {order.buyer.email}</h4>
+                        <h4>Nombre: {order?.buyer?.name}</h4>
+                        <h4>Teléfono: {order?.buyer?.phone}</h4>
+                        <h4>Email: {order?.buyer?.email}</h4>
                     </div>
                     <div>
                         <h2>Productos</h2>
-                        {order.items.map((item) => (
+                        {order?.items?.map((item) => (
                             <div key={item.id} className='product-order-container'>
                                 <div>
                                     <img src={item.image} alt={item.title} style={{ maxWidth: '6rem'}}/>
@@ -58,7 +58,7 @@ const FinalOrder = () => {
                     </div>
                 </div>
                 <div className='orderId-total'>
-                    <h3>TOTAL: ${order.total[order.total.length-1]}</h3>
+                    <h3>TOTAL: ${order?.total[order.total.length-1]}</h3>
                 </div>
                 <button onClick={() => history.push('/products')}>Volver a productos</button> 
             </div>

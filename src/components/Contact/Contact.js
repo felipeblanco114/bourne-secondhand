@@ -57,7 +57,7 @@ const Contact = () => {
                     <input name='reply_to' value={toSend.reply_to} onChange={handleChange} className='field' type='email' placeholder='Email' />
                     <input name='subject' value={toSend.subject} onChange={handleChange} className='field' type='text' placeholder='Asunto' />
                     <textarea name='message' value={toSend.message} onChange={handleChange} className='field area' placeholder='Mensaje'></textarea>
-                    <button type='submit' className='contact-btn'>Enviar</button>
+                    <button disabled={ !toSend.from_name.length === 0 || !toSend.message.length || !toSend.subject.length } type='submit' className='contact-btn'>Enviar</button>
                 </form>
             </div>
         </div>
