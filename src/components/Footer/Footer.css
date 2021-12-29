@@ -24,3 +24,6 @@ footer div p {
     margin: .5rem auto auto auto;
     user-select: none;
 }
+footer a {
+    color: rgb(155, 0, 36);
+}

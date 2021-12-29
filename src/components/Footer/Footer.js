@@ -8,8 +8,8 @@ const Footer = () => {
     return (
         <footer>
             <div>
-                <InstagramIcon fontSize='small' style={{ cursor: 'pointer' }} />
-                <EmailIcon fontSize='small' style={{ cursor: 'pointer' }} />
+                <a href="https://www.instagram.com/felu.blanco" target='_blank' rel='noreferrer'><InstagramIcon fontSize='small' style={{ cursor: 'pointer' }} /></a>
+                <a href="mailto:felipeblanco114@gmail.com"><EmailIcon fontSize='small' style={{ cursor: 'pointer' }} /></a>
                 <WhatsAppIcon fontSize='small' style={{ cursor: 'pointer' }} />
             </div>
             <div>
