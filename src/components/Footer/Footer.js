@@ -16,7 +16,7 @@ const Footer = () => {
                 <p>Felipe Blanco Muzzolón</p>
             </div>
             <div>
-                <img id='coder' src='https://www.greatplacetowork.com.ar/images/coderhouse_logo.png' alt='logo de Coderhouse' />
+                <img id='coder' src='https://i0.wp.com/edtechreviews.net/wp-content/uploads/2021/12/coderhouse_logo.png?resize=750%2C750&ssl=1' alt='logo de Coderhouse' />
             </div>
         </footer>
     )
