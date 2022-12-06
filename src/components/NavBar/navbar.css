@@ -1,6 +1,6 @@
 @import url('http://fonts.cdnfonts.com/css/aqua');
 @import url('http://fonts.cdnfonts.com/css/bonvenocf');
-@import url('http://fonts.cdnfonts.com/css/bebas');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .navbar-container {
     width: 100%;
@@ -47,7 +47,7 @@
 }
 
 .navbar .logo h2 {
-    font-family: 'Bebas', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     font-weight: bold;
     letter-spacing: 2px;
     font-size: 2rem;
@@ -55,7 +55,7 @@
 }
 .navbar .logo h3 {
     font-size: .55rem;
-    font-family: 'Bebas', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     margin-top: -0.3rem;
 }
 .navbar .menu ul {

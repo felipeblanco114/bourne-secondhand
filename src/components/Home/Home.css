@@ -1,4 +1,4 @@
-@import url('http://fonts.cdnfonts.com/css/bebas');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .home-container {
     width: 90%;
@@ -31,7 +31,7 @@
 }
 .home-container .logo {
     text-align: center;
-    font-family: 'Bebas', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     color: rgb(255, 255, 255);
     user-select: none;
 }
