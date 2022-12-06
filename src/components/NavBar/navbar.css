@@ -70,7 +70,7 @@
     list-style: none;
     padding: .5rem;
     margin-left: .4rem;
-    font-family: 'Bebas', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     font-weight: bold;
     cursor: pointer;
     border-radius: 1px;
@@ -80,7 +80,7 @@
     list-style: none;
     padding: .5rem;
     margin-left: .4rem;
-    font-family: 'Bebas', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     font-weight: bold;
     cursor: pointer;
     border-radius: 1px;
@@ -137,7 +137,7 @@
     font-size: 0.7rem;
     height: 1rem;
     font-weight: 300;
-    font-family: 'Bebas', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     user-select: none;
     animation-name: number-animation;
     animation-duration: .3s;
@@ -180,7 +180,7 @@
         bottom: 0;
         background-size: cover;
         color: rgb(155, 0, 36);
-        font-family: 'Bebas', sans-serif;
+        font-family: 'Bebas Neue', cursive;
         font-size: 4.5rem;
         justify-content: center;
         align-items: flex-start;
