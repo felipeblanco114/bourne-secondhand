@@ -6,7 +6,7 @@
     margin-right: auto;
     margin-top: 2.4rem;
     margin-bottom: 2.4rem;
-    font-family: 'Bebas Kai', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
@@ -50,7 +50,7 @@
     font-size: 1.8rem;
 }
 .swal2-popup {
-    font-family: 'Bebas Kai', sans-serif !important;
+  font-family: 'Bebas Neue', cursive !important;
   }
   .cart-list-image {
     width: 15rem;
@@ -85,7 +85,7 @@
   }
   .cart-footer div button {
     padding: 5px 10px;
-    font-family: 'Bebas Kai', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     font-size: 1.5rem;
     background: rgb(155, 0, 36);
     color: rgb(255,255,255);

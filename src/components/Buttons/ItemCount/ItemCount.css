@@ -30,7 +30,7 @@
 }
 .add-cart {
     margin-top: -.2rem;
-    font-family: 'Bebas', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     font-size: 1.2rem;
 }
 .btn-count-1,.btn-count-2 {
@@ -84,7 +84,7 @@
 }
 .proceed-to-purchase button {
     height: 2.4rem;
-    font-family: 'Bebas', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     text-align: center;
     padding-bottom: 0.5rem;
 }
