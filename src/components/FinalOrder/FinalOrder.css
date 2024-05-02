@@ -1,11 +1,11 @@
-@import url('http://fonts.cdnfonts.com/css/bebas-kai');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .orderId-container {
     width: 70%;
     margin: 2.4rem auto 2.4rem auto;
     display: flex;
     flex-direction: column;
-    font-family: 'Bebas Kai', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     background-color: rgba(255,255,255,0.6);
     padding: .4rem;
     box-shadow: 0 1px 1px rgba(0,0,0,0.02), 
@@ -31,7 +31,7 @@
     background-color: rgb(155, 0, 36,1);
     outline: none;
     border: none;
-    font-family: 'Bebas Kai', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     font-size: 1.2rem;
     padding: .3rem 0 .3rem 0;
     cursor: pointer;

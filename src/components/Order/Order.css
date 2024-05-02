@@ -1,4 +1,4 @@
-@import url('http://fonts.cdnfonts.com/css/bebas-kai');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&display=swap');
 
 .order-container {
@@ -6,7 +6,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 2.4rem;
-    font-family: 'Bebas Kai', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     margin-bottom: 2.4rem;
     background-color: rgba(255,255,255,0.6);
     padding-bottom: .4rem;
@@ -55,7 +55,7 @@
 }
 .order-container button {
     cursor: pointer;
-    font-family: 'Bebas Kai', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     font-size: 1.2rem;
     padding: 5px 10px;
     border: none;
